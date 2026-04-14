@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #27251f;
+    --card: #ffffff;
+    --card-foreground: #27251f;
+    --primary: #ffc72c;
+    --primary-foreground: #27251f;
+    --accent: #ffc72c;
+    --accent-foreground: #27251f;
+    --muted: #fbfbfc;
+    --muted-foreground: #55524b;
+    --border: #e9ebeb;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[color:var(--border)];
+  }
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] antialiased selection:bg-brand-accent selection:text-brand-black;
+  }
+}
+
+/* Glassmorphism Utilities */
+.glass {
+  @apply bg-white/95 backdrop-blur-md border border-brand-border shadow-premium;
+}
+
+/* Subtle abstract pattern using the 30% black (Pantone equivalent #B1B3B3) very lightly */
+.bg-grid-pattern-light {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(177, 179, 179, 0.12) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(177, 179, 179, 0.12) 1px, transparent 1px);
+}
