@@ -4,17 +4,13 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #27251f;
-    --card: #ffffff;
-    --card-foreground: #27251f;
-    --primary: #ffc72c;
-    --primary-foreground: #27251f;
-    --accent: #ffc72c;
-    --accent-foreground: #27251f;
-    --muted: #fbfbfc;
-    --muted-foreground: #55524b;
-    --border: #e9ebeb;
+    --background: #FFFFFF;
+    --foreground: #1A1208;
+    --primary: #D4A700;
+    --primary-foreground: #1A1208;
+    --muted: #FDFBF5;
+    --muted-foreground: #4A3F28;
+    --border: #E8DFC8;
   }
 }
 
@@ -23,19 +19,54 @@
     @apply border-[color:var(--border)];
   }
   body {
-    @apply bg-[color:var(--background)] text-[color:var(--foreground)] antialiased selection:bg-brand-accent selection:text-brand-black;
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] antialiased selection:bg-brand-gold selection:text-brand-black;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
-/* Glassmorphism Utilities */
+/* Translucent bar for the fixed header — warm white glass with gold border */
 .glass {
   @apply bg-white/95 backdrop-blur-md border border-brand-border shadow-premium;
 }
 
-/* Subtle abstract pattern using the 30% black (Pantone equivalent #B1B3B3) very lightly */
+/*
+ * NEW background pattern — elegant interlocking diamond / lozenge lattice.
+ * Inspired by Anatolian Seljuk tilework, not the stark geometric star.
+ * Light variant: faint gold on warm white parchment surfaces.
+ */
+.bg-girih,
 .bg-grid-pattern-light {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(177, 179, 179, 0.12) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(177, 179, 179, 0.12) 1px, transparent 1px);
+  background-color: transparent;
+  background-image:
+    linear-gradient(60deg, #D4A700 1px, transparent 1px),
+    linear-gradient(-60deg, #D4A700 1px, transparent 1px),
+    linear-gradient(60deg, transparent calc(50% - 1px), #D4A700 50%, transparent calc(50% + 1px)),
+    linear-gradient(-60deg, transparent calc(50% - 1px), #D4A700 50%, transparent calc(50% + 1px));
+  background-size: 40px 70px;
+  opacity: 0.06;
+}
+
+/* Cleaner approach — two-layer diamond grid with very low opacity */
+.bg-girih {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23D4A700' stroke-opacity='0.13' stroke-width='0.8'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z'/%3E%3Cline x1='0' y1='40' x2='80' y2='40'/%3E%3Cline x1='40' y1='0' x2='40' y2='80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 1;
+}
+
+/* Gold variant for deep dark sections (footer) — warmer, more visible */
+.bg-girih-gold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23D4A700' stroke-opacity='0.14' stroke-width='0.8'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z'/%3E%3Cline x1='0' y1='40' x2='80' y2='40'/%3E%3Cline x1='40' y1='0' x2='40' y2='80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* ── Footer gradient background ───────────────────────────────────────── */
+.footer-bg {
+  background: linear-gradient(160deg, #1C1A0F 0%, #0F0E08 40%, #1A150A 75%, #221A04 100%);
 }

@@ -1,26 +1,136 @@
+export interface Track {
+  id: string;
+  title: string;
+  titleTr: string;
+  description: string;
+  topics: { name: string; nameTr: string }[];
+}
+
 export const conferenceData = {
   name: "International Conference on AI Across Disciplines",
   shortName: "ICAID",
-  date: "12–14 November, 2026",
-  location: "Congress Center, Konya, Turkey",
+  edition: "ICAID 2026",
+  organizer: "Selçuk University",
+  date: "October 23–25, 2026",
+  dateTr: "23–25 Ekim 2026",
+  startDateISO: "2026-10-23T09:00:00+03:00",
+  location: "Selçuk University Congress Center, Konya, Turkey",
+  address: {
+    lines: [
+      "Selçuk University Congress Center",
+      "Alaeddin Keykubat Kampüsü",
+      "42130 Selçuklu, Konya / Turkey",
+    ],
+    mapEmbedUrl:
+      "https://www.openstreetmap.org/export/embed.html?bbox=32.4750%2C37.9950%2C32.5450%2C38.0500&layer=mapnik&marker=38.0230%2C32.5100",
+    mapLink:
+      "https://www.google.com/maps/search/?api=1&query=Sel%C3%A7uk+%C3%9Cniversitesi+S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi+Konya",
+  },
   email: "contact@aiacrossdisciplines.edu.tr",
+  phone: "+90 332 241 00 41",
+  stats: [
+    { value: "3", label: "Conference Days" },
+    { value: "6", label: "Disciplinary Tracks" },
+    { value: "30+", label: "Subtopic Domains" },
+    { value: "40+", label: "Paper Sessions" },
+  ],
+  tracks: [
+    {
+      id: "engineering",
+      title: "Engineering",
+      titleTr: "Mühendislik",
+      description: "Intelligent systems, autonomous tech, LLMs, computer vision, data science, and HCI.",
+      topics: [
+        { name: "Smart Systems & Autonomous Technologies", nameTr: "Akıllı Sistemler ve Otonom Teknolojiler" },
+        { name: "Natural Language Processing & Large Language Models", nameTr: "Doğal Dil İşleme ve Büyük Dil Modelleri" },
+        { name: "Human-Computer Interaction", nameTr: "İnsan-Bilgisayar Etkileşimi" },
+        { name: "Data Science & Big Data Analytics", nameTr: "Veri Bilimi ve Büyük Veri Analitiği" },
+        { name: "Computer Vision & Image Processing", nameTr: "Bilgisayarlı Görme ve Görüntü İşleme" },
+      ],
+    },
+    {
+      id: "health",
+      title: "Health Sciences",
+      titleTr: "Sağlık",
+      description: "Clinical decision support, drug discovery, medical imaging, medical NLP, and bioethics.",
+      topics: [
+        { name: "AI in Clinical Decision Support Systems", nameTr: "Klinik Karar Destek Sistemlerinde YZ" },
+        { name: "AI in Drug Discovery & Development", nameTr: "İlaç Keşfi ve Geliştirmede YZ" },
+        { name: "AI in Medical Image Analysis", nameTr: "Tıbbi Görüntü Analizinde YZ" },
+        { name: "Natural Language Processing in Medicine", nameTr: "Tıpta Doğal Dil İşleme" },
+        { name: "Ethical & Legal Issues in Medical AI", nameTr: "Tıbbi Yapay Zekada Etik ve Yasal Sorunlar" },
+      ],
+    },
+    {
+      id: "agriculture",
+      title: "Agriculture & Sustainability",
+      titleTr: "Tarım",
+      description: "Precision farming, crop yield prediction, climate resilience, supply chain traceability, and predictive modeling.",
+      topics: [
+        { name: "Smart Agriculture & Precision Farming", nameTr: "Akıllı Tarım ve Hassas Tarım" },
+        { name: "AI for Crop Monitoring & Yield Prediction", nameTr: "Bitki İzleme ve Verim Tahmini için YZ" },
+        { name: "Climate-Smart Agriculture & Sustainability", nameTr: "İklim Dostu Tarım ve Sürdürülebilirlik" },
+        { name: "AI for Food Supply Chain & Traceability", nameTr: "Gıda Tedarik Zinciri ve İzlenebilirlik için YZ" },
+        { name: "Predictive Modeling for Agricultural Systems", nameTr: "Tarım Sistemleri için Tahmin Modellemesi" },
+      ],
+    },
+    {
+      id: "law",
+      title: "Law & Policy",
+      titleTr: "Hukuk",
+      description: "Data privacy, KVKK/GDPR, AI human rights, responsible AI, judicial decision support, and IP rights.",
+      topics: [
+        { name: "Privacy, Data Protection, KVKK & GDPR", nameTr: "Gizlilik, Veri Koruma ve KVKK, GDPR" },
+        { name: "AI & Human Rights", nameTr: "Yapay Zeka ve İnsan Hakları" },
+        { name: "Ethics & Responsible AI", nameTr: "Etik ve Sorumlu Yapay Zeka" },
+        { name: "AI in Judicial & Legal Decision Making", nameTr: "Yargısal ve Hukuki Karar Almada YZ" },
+        { name: "Intellectual Property in the AI Era", nameTr: "Yapay Zeka Çağında Fikri Mülkiyet" },
+      ],
+    },
+    {
+      id: "economics",
+      title: "Economics & Finance",
+      titleTr: "Ekonomi",
+      description: "FinTech, business intelligence, digital enterprise transformation, financial modeling, and sustainable economy.",
+      topics: [
+        { name: "AI in Economics & Finance", nameTr: "Ekonomi ve Finansta Yapay Zeka" },
+        { name: "Smart Financial Technologies (FinTech)", nameTr: "Akıllı Finans Teknolojileri (FinTech)" },
+        { name: "Digital Transformation & Smart Enterprises", nameTr: "Dijital Dönüşüm ve Akıllı İşletmeler" },
+        { name: "Business Intelligence & Big Data Analytics", nameTr: "İş Zekası ve Büyük Veri Analitiği" },
+        { name: "AI in Sustainable Economic Development", nameTr: "Sürdürülebilir Ekonomik Kalkınmada YZ" },
+      ],
+    },
+    {
+      id: "social-sciences",
+      title: "Social Sciences & Education",
+      titleTr: "Sosyal Bilimler",
+      description: "Societal AI impacts, governance & public policy, education system transformation, digital ethics, and social behavior analysis.",
+      topics: [
+        { name: "Societal Impacts of Artificial Intelligence", nameTr: "Yapay Zekanın Toplumsal Etkileri" },
+        { name: "AI Governance & Public Policy", nameTr: "Yapay Zeka Yönetişimi ve Kamu Politikası" },
+        { name: "AI & Transformation of Educational Systems", nameTr: "Yapay Zeka ve Eğitim Sistemleri Dönüşümü" },
+        { name: "Digital Ethics", nameTr: "Dijital Etik" },
+        { name: "AI & Social Behavior Analysis", nameTr: "Yapay Zeka ve Sosyal Davranış Analizi" },
+      ],
+    },
+  ],
   navLinks: [
     { label: "About", href: "/about" },
-    { 
-      label: "Conference", 
+    {
+      label: "Conference",
       children: [
         { label: "Important Dates", href: "/dates" },
         { label: "Program", href: "/program" },
         { label: "Keynotes", href: "/keynotes" },
-        { label: "Committees", href: "/committee" }
-      ]
+        { label: "Committees", href: "/committee" },
+      ],
     },
-    { 
-      label: "Participate", 
+    {
+      label: "Participate",
       children: [
         { label: "Call for Papers", href: "/cfp" },
-        { label: "Registration", href: "/registration" }
-      ]
+        { label: "Registration", href: "/registration" },
+      ],
     },
     { label: "Venue & Travel", href: "/venue" },
     { label: "Contact", href: "/contact" },
@@ -29,6 +139,39 @@ export const conferenceData = {
     { label: "Call for Papers", href: "/cfp" },
     { label: "Program", href: "/program" },
     { label: "Registration", href: "/registration" },
-    { label: "Venue & Travel", href: "/venue" }
-  ]
+    { label: "Venue & Travel", href: "/venue" },
+  ],
+  hostInstitution: {
+    id: "selcuk",
+    name: "Selçuk University",
+    fullName: "Selçuk University",
+    role: "Host & Main Organizer",
+    description: "Established in 1975 in Konya, Selçuk University is one of Turkey's largest comprehensive research institutions, hosting ICAID 2026 across its state-of-the-art academic facilities.",
+    logo: "/images/collaborators/selcuk.png",
+    website: "https://www.selcuk.edu.tr",
+  },
+  collaborators: [
+    {
+      id: "roketsan",
+      name: "Roketsan",
+      fullName: "ROKETSAN Missiles & Defense Inc.",
+      type: "Collaborating Partner",
+      role: "Collaborating Partner",
+      description: "Turkey's premier defense technology enterprise, supporting AI advancement in autonomous systems, high-performance computing, and advanced engineering.",
+      logo: "/images/collaborators/roketsan.svg",
+      website: "https://www.roketsan.com.tr/en",
+    },
+    {
+      id: "tika",
+      name: "TİKA",
+      fullName: "Turkish Cooperation and Coordination Agency",
+      type: "Collaborating Partner",
+      role: "Collaborating Partner",
+      description: "A leading global development and technical cooperation agency fostering international academic partnerships, capacity building, and cross-border scientific exchange.",
+      logo: "/images/collaborators/tika.svg",
+      website: "https://www.tika.gov.tr/en",
+    },
+  ],
 };
+
+export type NavLink = (typeof conferenceData.navLinks)[number];

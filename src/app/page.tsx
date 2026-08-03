@@ -1,210 +1,448 @@
 import Link from "next/link"
+import Image from "next/image"
 import { conferenceData } from "@/data/conference"
 import { keynoteSpeakers } from "@/data/speakers"
 import { importantDates } from "@/data/dates"
 import { Button } from "@/components/ui/Button"
 import { Section } from "@/components/ui/Section"
+import { SectionHeading } from "@/components/ui/SectionHeading"
+import { Countdown } from "@/components/ui/Countdown"
 import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/MotionDiv"
-import { ArrowRight, Calendar, MapPin, FlaskConical, HeartPulse, Scaling, Scale } from "lucide-react"
+import { ArrowRight, MapPin, FlaskConical, HeartPulse, Sprout, Scale, TrendingUp, Users } from "lucide-react"
 import { cn } from "@/lib/utils"
+
+/* Eight-pointed Seljuk star — the site's signature mark */
+function SeljukStar({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 100 100" className={className} aria-hidden fill="none">
+      <rect x="22" y="22" width="56" height="56" stroke="currentColor" strokeWidth="1.5" />
+      <rect x="22" y="22" width="56" height="56" stroke="currentColor" strokeWidth="1.5" transform="rotate(45 50 50)" />
+      <circle cx="50" cy="50" r="12" stroke="currentColor" strokeWidth="1.5" />
+      <circle cx="50" cy="50" r="2.5" fill="currentColor" />
+    </svg>
+  )
+}
+
+const trackIcons: Record<string, any> = {
+  engineering: FlaskConical,
+  health: HeartPulse,
+  agriculture: Sprout,
+  law: Scale,
+  economics: TrendingUp,
+  "social-sciences": Users,
+};
 
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center pt-24 pb-12 overflow-hidden bg-brand-bg text-brand-black">
-        <div className="absolute inset-0 bg-grid-pattern-light opacity-80 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-accentLight/40 blur-[120px] rounded-full pointer-events-none"></div>
+      {/* ————— Hero ————— */}
+      <section className="relative pt-36 pb-20 lg:pt-44 lg:pb-28 overflow-hidden bg-brand-bg">
+        {/* Girih pattern (gold tones) fading down */}
+        <div className="absolute inset-0 bg-girih pointer-events-none [mask-image:linear-gradient(to_bottom,black,transparent_85%)]" aria-hidden />
+        {/* Subtle gold gradient band near top */}
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-gold to-transparent" aria-hidden />
 
         <div className="container mx-auto px-6 max-w-7xl relative z-10">
-          <MotionDiv variants={staggerContainer} className="max-w-4xl">
-            <MotionDiv variants={fadeUpVariant} className="flex items-center gap-4 mb-8">
-              <span className="px-4 py-1.5 text-xs font-semibold tracking-widest uppercase border border-brand-accent text-brand-black rounded-sm bg-brand-accent">
-                12–14 November
-              </span>
-              <span className="text-brand-blackLight text-sm flex items-center gap-2 font-medium tracking-wide">
-                <MapPin size={16} className="text-brand-accent" /> Konya, Turkey
-              </span>
+          <div className="grid lg:grid-cols-12 gap-14 lg:gap-10 items-start">
+            {/* Left: type */}
+            <MotionDiv variants={staggerContainer} initial="hidden" animate="visible" className="lg:col-span-7">
+              <MotionDiv variants={fadeUpVariant}>
+                <p className="font-mono text-xs sm:text-sm uppercase tracking-[0.25em] text-brand-gold mb-6 flex flex-wrap items-center gap-x-4 gap-y-2">
+                  <span>{conferenceData.date}</span>
+                  <span className="text-brand-gold/50" aria-hidden>✦</span>
+                  <span className="flex items-center gap-2 text-brand-blackLight">
+                    <MapPin size={14} className="text-brand-gold" /> Konya, Türkiye
+                  </span>
+                </p>
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant}>
+                <h1 className="font-display font-medium text-brand-black tracking-tight leading-[1.06] text-[2.75rem] sm:text-6xl lg:text-7xl mb-6">
+                  International Conference on{" "}
+                  <em className="not-italic border-b-4 border-brand-gold/70" style={{color: '#1A1208'}}>AI Across Disciplines</em>
+                </h1>
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant}>
+                <p className="font-mono text-xs uppercase tracking-[0.25em] text-brand-blackLight mb-8">
+                  Organized by {conferenceData.organizer}
+                </p>
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant}>
+                <p className="text-lg md:text-xl text-brand-blackLight font-light leading-relaxed max-w-2xl mb-10">
+                  A peer-reviewed forum where researchers in engineering, medicine, the social sciences, and law examine artificial intelligence together — its methods, its applications, and its consequences.
+                </p>
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant} className="mb-10">
+                <Countdown targetDate={conferenceData.startDateISO} />
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant} className="flex flex-col sm:flex-row gap-4">
+                <Link href="/cfp">
+                  <Button size="lg" className="w-full sm:w-auto">
+                    Call for Papers
+                  </Button>
+                </Link>
+                <Link href="/program">
+                  <Button variant="outline" size="lg" className="w-full sm:w-auto">
+                    View Program
+                  </Button>
+                </Link>
+              </MotionDiv>
             </MotionDiv>
 
-            <MotionDiv variants={fadeUpVariant}>
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-medium leading-[1.1] tracking-tight mb-8">
-                International Conference on <br className="hidden md:block" />
-                <span className="italic font-normal text-brand-accent">AI Across Disciplines</span>
-              </h1>
-            </MotionDiv>
+            {/* Right: conference poster card */}
+            <MotionDiv
+              variants={fadeUpVariant}
+              initial="hidden"
+              animate="visible"
+              className="lg:col-span-5 relative hidden lg:block"
+            >
+              <div className="relative bg-white border border-brand-border shadow-soft overflow-hidden group">
+                {/* Gold top bar on card */}
+                <div className="h-1 w-full bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
+                
+                {/* Poster image replacing the star motif */}
+                <div className="relative overflow-hidden border-b border-brand-border">
+                  <Image
+                    src="/images/poster.jpg"
+                    alt="Selçuk AI Conference Poster - From Tradition to the Future"
+                    width={800}
+                    height={1100}
+                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    priority
+                  />
+                </div>
 
-            <MotionDiv variants={fadeUpVariant}>
-              <p className="text-xl md:text-2xl text-brand-blackLight mb-12 max-w-3xl font-light leading-relaxed">
-                A prestigious interdisciplinary forum uniting researchers and academics to explore the multifaceted impact of artificial intelligence across all scientific boundaries.
-              </p>
+                <dl className="divide-y divide-brand-border">
+                  {[
+                    { dt: "Dates", dd: conferenceData.date },
+                    { dt: "Venue", dd: "Selçuk University Congress Center, Konya" },
+                    { dt: "Format", dd: "In person · keynotes, paper sessions, panels" },
+                    { dt: "Proceedings", dd: "Peer-reviewed, published post-conference" },
+                  ].map((row) => (
+                    <div key={row.dt} className="grid grid-cols-[100px_1fr] gap-4 px-6 py-3.5">
+                      <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-gold pt-0.5">{row.dt}</dt>
+                      <dd className="text-sm text-brand-black leading-relaxed">{row.dd}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </div>
+              {/* offset gold frame */}
+              <div className="absolute -bottom-4 -right-4 inset-x-6 top-6 border border-brand-gold/50 -z-10" aria-hidden />
             </MotionDiv>
-
-            <MotionDiv variants={fadeUpVariant} className="flex flex-col sm:flex-row gap-6">
-              <Link href="/cfp">
-                <Button size="lg" className="text-lg w-full sm:w-auto shadow-premium bg-brand-black text-white hover:bg-brand-blackLight rounded-sm">
-                  Call for Papers
-                </Button>
-              </Link>
-              <Link href="/program">
-                <Button variant="outline" size="lg" className="text-lg w-full sm:w-auto rounded-sm border-brand-border hover:bg-brand-surface hover:text-brand-black">
-                  View Program
-                </Button>
-              </Link>
-            </MotionDiv>
-          </MotionDiv>
+          </div>
         </div>
       </section>
 
-      {/* Overview Section */}
-      <Section id="overview" className="bg-brand-surface border-y border-brand-border">
+      {/* ————— Facts strip ————— */}
+      <div className="border-y border-brand-border bg-brand-black relative overflow-hidden">
+        <div className="absolute inset-0 bg-girih-gold opacity-50 pointer-events-none" aria-hidden />
+        <div className="container mx-auto px-6 max-w-7xl grid grid-cols-2 md:grid-cols-4 divide-x divide-brand-gold/20 relative z-10">
+          {conferenceData.stats.map((stat) => (
+            <div key={stat.label} className="py-7 px-4 text-center">
+              <p className="text-3xl md:text-4xl font-display font-medium text-brand-gold">{stat.value}</p>
+              <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-gray mt-2">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* ————— Overview ————— */}
+      <Section id="overview" className="bg-brand-bg">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <MotionDiv variants={fadeUpVariant}>
-            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-brand-black">
-              An Interdisciplinary Dialogue
-            </h2>
-            <div className="w-12 h-1 bg-brand-accent mb-8"></div>
+            <SectionHeading
+              eyebrow="About the conference"
+              title="An interdisciplinary dialogue"
+            />
             <p className="text-lg text-brand-blackLight leading-relaxed mb-6 font-light">
-              We proudly host the International Conference on AI Across Disciplines (ICAID), creating an elite forum for researchers, practitioners, and leaders to present groundbreaking work and engage in high-level academic discourse.
+              {conferenceData.organizer} hosts the International Conference on AI Across Disciplines ({conferenceData.shortName}): a forum where researchers, practitioners, and policymakers present original work and examine it across disciplinary lines.
             </p>
             <p className="text-lg text-brand-blackLight leading-relaxed mb-8 font-light">
-              Our vision is to bridge the gap between abstract theoretical advancements and impactful real-world applications, exploring both the technological frontiers and the societal implications of AI globally.
+              Our aim is to connect theoretical advances with real-world applications — the technological frontiers of AI alongside its societal implications.
             </p>
-            <Link href="/about" className="inline-flex items-center gap-2 text-brand-accent font-medium hover:gap-4 transition-all uppercase tracking-wide text-sm">
-              Learn more about our vision <ArrowRight size={16} />
+            <Link href="/about" className="inline-flex items-center gap-2 text-brand-gold font-semibold hover:gap-4 transition-all text-sm uppercase tracking-wide">
+              About our vision <ArrowRight size={16} />
             </Link>
           </MotionDiv>
 
           <MotionDiv variants={fadeUpVariant} className="relative">
-            <div className="aspect-[4/3] rounded-sm overflow-hidden border border-brand-border shadow-premium relative group">
-              <img
-                src="images/campus.jpg"
-                alt="Conference Campus"
-                className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 grayscale hover:grayscale-0"
+            <div className="aspect-[4/3] overflow-hidden border border-brand-border relative">
+              <Image
+                src="/images/campus.jpg"
+                alt="Selçuk University campus"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                className="object-cover"
               />
             </div>
-            {/* Elegant offset accent block */}
-            <div className="absolute -bottom-6 -left-6 w-48 h-48 bg-grid-pattern-light border border-brand-border border-dashed -z-10" />
+            <div className="absolute -bottom-4 -left-4 inset-x-6 top-6 border border-brand-gold/50 -z-10" aria-hidden />
           </MotionDiv>
         </div>
       </Section>
 
-      {/* Featured Tracks */}
-      <Section id="tracks" className="bg-brand-bg">
-        <MotionDiv variants={fadeUpVariant} className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">Conference Areas</h2>
-          <div className="w-12 h-1 bg-brand-accent mx-auto mb-8"></div>
-          <p className="text-brand-blackLight text-lg font-light">
-            We invite rigorous academic submissions across four primary interdisciplinary domains of artificial intelligence research.
-          </p>
-        </MotionDiv>
+      {/* ————— Tracks ————— */}
+      <Section id="tracks" className="bg-brand-surface border-y border-brand-border">
+        <SectionHeading
+          eyebrow="Research areas"
+          title="Six disciplinary tracks"
+          description="Submissions are reviewed within six interdisciplinary domains, spanning engineering, medicine, agriculture, law, economics, and social sciences."
+          className="mb-16"
+        />
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {[
-            { icon: FlaskConical, title: "Engineering & Natural Sciences", desc: "Core algorithms, data science, environmental modeling, and applied physics." },
-            { icon: HeartPulse, title: "Health & Life Sciences", desc: "Medical imaging, genetics, public health, and biotechnology advancements." },
-            { icon: Scaling, title: "Social & Economic Systems", desc: "Behavioral economics, societal shifts, labor markets, and human interaction." },
-            { icon: Scale, title: "Ethics, Law & Policy", desc: "AI governance, algorithmic fairness, legal frameworks, and moral philosophy." }
-          ].map((track, i) => (
-            <MotionDiv key={i} variants={fadeUpVariant} className="bg-brand-surface border border-brand-border p-8 rounded-sm hover:-translate-y-2 hover:shadow-premium transition-all duration-300 group">
-              <div className="w-14 h-14 bg-brand-bg border border-brand-border rounded-sm flex items-center justify-center text-brand-black mb-6 group-hover:border-brand-accent transition-colors">
-                <track.icon size={26} className="text-brand-black" />
-              </div>
-              <h3 className="text-xl font-display font-medium mb-4 leading-tight">{track.title}</h3>
-              <p className="text-brand-blackLight font-light leading-relaxed text-sm">{track.desc}</p>
-            </MotionDiv>
-          ))}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {conferenceData.tracks.map((track) => {
+            const Icon = trackIcons[track.id] || FlaskConical;
+            return (
+              <MotionDiv
+                key={track.id}
+                variants={fadeUpVariant}
+                className="relative bg-white border border-brand-border p-8 group hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
+              >
+                <span className="absolute top-0 left-0 h-1 w-0 bg-brand-gold group-hover:w-full transition-all duration-500" aria-hidden />
+                <div>
+                  <div className="flex items-center justify-between mb-6">
+                    <Icon size={28} className="text-brand-gold" strokeWidth={1.75} />
+                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-gold bg-brand-goldLight border border-brand-gold/30 px-2.5 py-0.5 font-semibold">
+                      {track.titleTr}
+                    </span>
+                  </div>
+                  <h3 className="text-xl font-display font-semibold mb-2 leading-snug text-brand-black group-hover:text-brand-goldDark transition-colors">
+                    {track.title}
+                  </h3>
+                  <p className="text-brand-blackLight font-light leading-relaxed text-sm mb-6">
+                    {track.description}
+                  </p>
+                </div>
+                <div className="pt-4 border-t border-brand-border">
+                  <ul className="space-y-1.5 text-xs text-brand-blackLight font-light">
+                    {track.topics.slice(0, 3).map((t, idx) => (
+                      <li key={idx} className="truncate">• {t.name}</li>
+                    ))}
+                    {track.topics.length > 3 && (
+                      <li className="font-mono text-[10px] text-brand-gold font-semibold pt-1">+ {track.topics.length - 3} more subtopics</li>
+                    )}
+                  </ul>
+                </div>
+              </MotionDiv>
+            );
+          })}
         </div>
       </Section>
 
-      {/* Keynotes Preview */}
-      <Section id="keynotes" className="bg-brand-surface border-y border-brand-border">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <MotionDiv variants={fadeUpVariant} className="max-w-2xl">
-            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-brand-black">Keynote Speakers</h2>
-            <div className="w-12 h-1 bg-brand-accent mb-8"></div>
-            <p className="text-brand-blackLight text-lg font-light leading-relaxed">
-              Hear directly from visionaries shaping the research and application of AI across fields.
-            </p>
-          </MotionDiv>
-          <MotionDiv variants={fadeUpVariant}>
+      {/* ————— Keynotes ————— */}
+      <Section id="keynotes" className="bg-brand-bg">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <SectionHeading
+            eyebrow="Invited talks"
+            title="Keynote speakers"
+            description="Leading researchers on the methods and consequences of AI across fields."
+          />
+          <MotionDiv variants={fadeUpVariant} className="shrink-0">
             <Link href="/keynotes">
-              <Button variant="outline" className="border-brand-border rounded-sm uppercase tracking-wider text-xs font-semibold">View All Speakers</Button>
+              <Button variant="outline">All speakers</Button>
             </Link>
           </MotionDiv>
         </div>
 
         <div className="grid md:grid-cols-3 gap-10">
-          {keynoteSpeakers.map((speaker, i) => (
-            <MotionDiv key={speaker.id} variants={fadeUpVariant} className="group cursor-pointer">
-              <div className="aspect-[3/4] mb-6 overflow-hidden rounded-sm relative border border-brand-border">
-                <div className="absolute inset-0 bg-brand-black/5 group-hover:bg-transparent transition-colors z-10" />
-                <img
-                  src={speaker.image}
-                  alt={speaker.name}
-                  className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-700 grayscale"
-                />
-              </div>
-              <h3 className="text-2xl font-display font-medium text-brand-black mb-1">{speaker.name}</h3>
-              <p className="text-brand-accent font-semibold text-sm uppercase tracking-wide mb-2">{speaker.role}</p>
-              <p className="text-brand-blackLight text-sm font-light">{speaker.affiliation}</p>
+          {keynoteSpeakers.map((speaker) => (
+            <MotionDiv key={speaker.id} variants={fadeUpVariant}>
+              <Link href="/keynotes" className="group block">
+                <div className="aspect-[3/4] mb-6 overflow-hidden relative border border-brand-border">
+                  <Image
+                    src={speaker.image}
+                    alt={speaker.name}
+                    fill
+                    sizes="(min-width: 768px) 33vw, 100vw"
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                  />
+                  {/* Gold bottom overlay on hover */}
+                  <div className="absolute bottom-0 inset-x-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" aria-hidden />
+                </div>
+                <h3 className="text-xl font-display font-medium text-brand-black mb-1 group-hover:text-brand-gold transition-colors">{speaker.name}</h3>
+                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-gold mb-2">{speaker.role}</p>
+                <p className="text-brand-blackLight text-sm font-light">{speaker.affiliation}</p>
+              </Link>
             </MotionDiv>
           ))}
         </div>
       </Section>
 
-      {/* Important Dates (Timeline approach) */}
-      <Section id="dates" className="bg-brand-bg">
-        <MotionDiv variants={fadeUpVariant} className="text-center max-w-3xl mx-auto mb-20">
-          <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">Important Dates</h2>
-          <div className="w-12 h-1 bg-brand-accent mx-auto mb-8"></div>
-          <p className="text-brand-blackLight text-lg font-light">
-            Keep track of strict deadlines for submission and registration.
-          </p>
-        </MotionDiv>
+      {/* ————— Important dates ————— */}
+      <Section id="dates" className="bg-brand-surface border-y border-brand-border">
+        <SectionHeading
+          eyebrow="Deadlines"
+          title="Important dates"
+          description="All deadlines are 11:59 PM Anywhere on Earth."
+          className="mb-16"
+        />
 
-        <div className="max-w-4xl mx-auto relative before:absolute before:inset-0 before:ml-5 md:before:mx-auto md:before:translate-x-0 before:h-full before:w-[1px] before:bg-brand-border">
+        <ol className="max-w-3xl divide-y divide-brand-border border-y border-brand-border">
           {importantDates.map((date, i) => (
-            <MotionDiv key={i} variants={fadeUpVariant} className="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group mb-10 last:mb-0">
-              <div className="absolute left-5 md:left-1/2 w-4 h-4 rounded-full bg-brand-bg border-2 border-brand-accent -translate-x-[7px] md:-translate-x-[8px] z-10" />
+            <MotionDiv
+              key={i}
+              variants={fadeUpVariant}
+              className={cn(
+                "grid sm:grid-cols-[220px_1fr] gap-x-8 gap-y-1 py-6 items-baseline",
+                date.passed && "opacity-50"
+              )}
+            >
+              <span className={cn("font-mono text-sm tabular-nums", date.passed ? "text-brand-blackLight line-through" : "text-brand-gold")}>
+                {date.date}
+              </span>
+              <span className="text-lg font-display font-medium text-brand-black">
+                {date.event}
+                {date.passed && <span className="ml-3 font-mono font-normal text-[10px] uppercase tracking-[0.2em] text-brand-blackLight no-underline">closed</span>}
+              </span>
+            </MotionDiv>
+          ))}
+        </ol>
+      </Section>
 
-              <div className="w-full pl-12 md:pl-0 md:w-1/2 md:odd:pr-16 md:even:pl-16">
-                <div className={cn(
-                  "p-8 bg-brand-surface border border-brand-border rounded-sm transition-all relative overflow-hidden",
-                  date.passed ? "opacity-60 grayscale" : "group-hover:border-brand-accent/50 group-hover:shadow-premium hover:-translate-y-1"
-                )}>
-                  {!date.passed && <div className="absolute top-0 left-0 w-full h-[2px] bg-brand-accent hidden group-hover:block" />}
-                  <div className="flex items-center gap-3 mb-3 text-brand-accent">
-                    <Calendar size={18} />
-                    <span className="font-semibold tracking-widest uppercase text-xs text-brand-black">{date.date}</span>
-                  </div>
-                  <h3 className="text-xl font-display font-medium text-brand-black">{date.event}</h3>
+      {/* ————— Collaborators & Partners ————— */}
+      <Section id="collaborators" className="bg-brand-bg">
+        <SectionHeading
+          eyebrow="Partnership & Support"
+          title="Organizing & Collaborating Institutions"
+          description={`ICAID 2026 is organized by ${conferenceData.organizer} in academic and technological partnership with leading Turkish research and development institutions.`}
+          className="mb-16"
+        />
+
+        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          {/* Host Institution */}
+          <MotionDiv
+            variants={fadeUpVariant}
+            className="bg-white border-2 border-brand-gold p-8 md:p-10 relative group hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
+          >
+            {/* Gold top bar */}
+            <span className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
+
+            <div>
+              <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-brand-border">
+                <div className="relative h-16 w-full overflow-hidden flex items-center">
+                  <Image
+                    src={conferenceData.hostInstitution.logo}
+                    alt={`${conferenceData.hostInstitution.name} logo`}
+                    width={240}
+                    height={70}
+                    className="object-contain object-left max-h-14 w-auto"
+                  />
                 </div>
               </div>
+              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-black bg-brand-gold px-3 py-1 font-bold inline-block mb-4">
+                {conferenceData.hostInstitution.role}
+              </span>
+              <h3 className="text-2xl font-display font-semibold text-brand-black mb-1">
+                {conferenceData.hostInstitution.name}
+              </h3>
+              <p className="font-mono text-xs text-brand-blackLight/80 mb-4">{conferenceData.hostInstitution.fullName}</p>
+              <p className="text-brand-blackLight font-light text-sm leading-relaxed mb-6">
+                {conferenceData.hostInstitution.description}
+              </p>
+            </div>
+
+            <div className="pt-4 border-t border-brand-border flex items-center justify-between text-xs font-mono">
+              <span className="text-brand-blackLight">Host Institution</span>
+              <a
+                href={conferenceData.hostInstitution.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-brand-gold hover:text-brand-goldDark font-medium flex items-center gap-1 transition-colors"
+              >
+                Official Website <ArrowRight size={13} />
+              </a>
+            </div>
+          </MotionDiv>
+
+          {/* Collaborating Partners: Roketsan & TİKA */}
+          {conferenceData.collaborators.map((partner) => (
+            <MotionDiv
+              key={partner.id}
+              variants={fadeUpVariant}
+              className="bg-white border border-brand-border p-8 md:p-10 relative group hover:shadow-soft hover:border-brand-gold transition-all duration-300 flex flex-col justify-between"
+            >
+              <span className="absolute top-0 left-0 h-1 w-0 bg-brand-gold group-hover:w-full transition-all duration-500" aria-hidden />
+
+              <div>
+                <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-brand-border">
+                  <div className="relative h-16 w-full overflow-hidden flex items-center">
+                    <Image
+                      src={partner.logo}
+                      alt={`${partner.name} logo`}
+                      width={240}
+                      height={70}
+                      className="object-contain object-left max-h-14 w-auto"
+                    />
+                  </div>
+                </div>
+                <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-black bg-brand-goldLight border border-brand-gold/40 px-3 py-1 font-semibold inline-block mb-4">
+                  {partner.role}
+                </span>
+                <h3 className="text-2xl font-display font-semibold text-brand-black mb-1 group-hover:text-brand-goldDark transition-colors">
+                  {partner.name}
+                </h3>
+                <p className="font-mono text-xs text-brand-blackLight/80 mb-4">{partner.fullName}</p>
+                <p className="text-brand-blackLight font-light text-sm leading-relaxed mb-6">
+                  {partner.description}
+                </p>
+              </div>
+
+              <div className="pt-4 border-t border-brand-border flex items-center justify-between text-xs font-mono">
+                <span className="text-brand-blackLight">ICAID 2026 Partner</span>
+                <a
+                  href={partner.website}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-gold hover:text-brand-goldDark font-medium flex items-center gap-1 transition-colors"
+                >
+                  Official Website <ArrowRight size={13} />
+                </a>
+              </div>
             </MotionDiv>
           ))}
         </div>
       </Section>
 
-      {/* CTA Registration */}
-      <Section className="bg-brand-black text-white relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern-light opacity-5 pointer-events-none"></div>
-        <MotionDiv variants={staggerContainer} className="text-center max-w-4xl mx-auto relative z-10">
-          <h2 className="text-4xl md:text-6xl font-display font-medium mb-8 text-white">
-            Secure Your Spot at ICAID 2026
-          </h2>
-          <p className="text-xl text-brand-gray mb-10 font-light leading-relaxed max-w-2xl mx-auto">
-            Join international academic and industry professionals. Registration early incentives close on September 15, 2026.
-          </p>
-          <div className="flex justify-center gap-6">
-            <Link href="/registration">
-              <Button size="lg" className="bg-brand-accent text-brand-black hover:bg-[#E5B327] border-none shadow-premium text-lg rounded-sm font-semibold transition-colors">
-                Register to Attend
-              </Button>
-            </Link>
-          </div>
-        </MotionDiv>
-      </Section>
+      {/* ————— CTA ————— */}
+      {/*
+        * Decorative absolute elements are direct children of <section> so they
+        * position relative to the section itself, not the inner content container.
+        */}
+      <section className="bg-brand-black relative overflow-hidden py-20 md:py-32">
+        {/* Girih lattice overlay */}
+        <div className="absolute inset-0 bg-girih-gold opacity-60 pointer-events-none" aria-hidden />
+        {/* Gold top and bottom border lines — safe: on section, not container */}
+        <div className="absolute top-0 inset-x-0 h-px bg-brand-gold/40" aria-hidden />
+        <div className="absolute bottom-0 inset-x-0 h-px bg-brand-gold/40" aria-hidden />
+
+        <div className="container mx-auto px-6 md:px-12 xl:px-24 max-w-7xl relative z-10">
+          <MotionDiv variants={staggerContainer} className="max-w-2xl">
+            <SectionHeading
+              dark
+              eyebrow="Registration"
+              title="Join us in Konya this November"
+              description="Early bird registration closes on September 15, 2026. Each accepted paper requires at least one full registration."
+              className="max-w-none"
+            />
+            <div className="flex flex-col sm:flex-row gap-4 mt-10">
+              <Link href="/registration">
+                <Button variant="gold" size="lg" className="w-full sm:w-auto">
+                  Register to attend
+                </Button>
+              </Link>
+              <Link href="/venue">
+                <Button size="lg" className="w-full sm:w-auto bg-transparent border border-white/30 text-white hover:bg-white/10 hover:border-white/60">
+                  Venue &amp; travel
+                </Button>
+              </Link>
+            </div>
+          </MotionDiv>
+        </div>
+      </section>
     </>
   )
 }
