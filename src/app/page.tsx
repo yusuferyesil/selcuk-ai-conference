@@ -58,8 +58,7 @@ export default function Home() {
 
               <MotionDiv variants={fadeUpVariant}>
                 <h1 className="font-display font-medium text-brand-black tracking-tight leading-[1.06] text-[2.75rem] sm:text-6xl lg:text-7xl mb-6">
-                  International Conference on{" "}
-                  <em className="not-italic border-b-4 border-brand-gold/70" style={{color: '#1A1208'}}>AI Across Disciplines</em>
+                  International Conference on AI Across Disciplines
                 </h1>
               </MotionDiv>
 
