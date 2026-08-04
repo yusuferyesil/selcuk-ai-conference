@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     template: `%s | ${conferenceData.edition}`,
   },
   description: `${conferenceData.edition}, organized by ${conferenceData.organizer}: join global experts in artificial intelligence across engineering, health, social sciences, and ethics. ${conferenceData.date}, Konya, Turkey.`,
-  keywords: ['artificial intelligence', 'AI conference', 'academic conference', 'Selçuk University', 'Konya', 'ICAID'],
+  keywords: ['artificial intelligence', 'AI conference', 'academic conference', 'Selçuk University', 'Konya', 'ICAAD'],
   openGraph: {
     title: `${conferenceData.name} — ${conferenceData.edition}`,
     description: `Premier interdisciplinary AI conference. ${conferenceData.date}, Konya, Turkey.`,

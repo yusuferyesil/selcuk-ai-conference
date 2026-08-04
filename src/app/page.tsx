@@ -93,7 +93,7 @@ export default function Home() {
               </MotionDiv>
             </MotionDiv>
 
-            {/* Right: conference poster card */}
+            {/* Right: conference artwork & details card */}
             <MotionDiv
               variants={fadeUpVariant}
               initial="hidden"
@@ -103,20 +103,20 @@ export default function Home() {
               <div className="relative bg-white border border-brand-border shadow-soft overflow-hidden group">
                 {/* Gold top bar on card */}
                 <div className="h-1 w-full bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
-                
-                {/* Poster image replacing the star motif */}
-                <div className="relative overflow-hidden border-b border-brand-border">
+
+                {/* Artwork container */}
+                <div className="relative overflow-hidden border-b border-brand-border w-full">
                   <Image
                     src="/images/poster.jpg"
-                    alt="Selçuk AI Conference Poster - From Tradition to the Future"
+                    alt="ICAAD Conference Artwork - Bridging Tradition & Artificial Intelligence"
                     width={800}
                     height={1100}
-                    className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                    className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                     priority
                   />
                 </div>
 
-                <dl className="divide-y divide-brand-border">
+                <dl className="divide-y divide-brand-border bg-white">
                   {[
                     { dt: "Dates", dd: conferenceData.date },
                     { dt: "Venue", dd: "Selçuk University Congress Center, Konya" },
@@ -130,8 +130,6 @@ export default function Home() {
                   ))}
                 </dl>
               </div>
-              {/* offset gold frame */}
-              <div className="absolute -bottom-4 -right-4 inset-x-6 top-6 border border-brand-gold/50 -z-10" aria-hidden />
             </MotionDiv>
           </div>
         </div>
@@ -204,11 +202,8 @@ export default function Home() {
               >
                 <span className="absolute top-0 left-0 h-1 w-0 bg-brand-gold group-hover:w-full transition-all duration-500" aria-hidden />
                 <div>
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="flex items-center mb-6">
                     <Icon size={28} className="text-brand-gold" strokeWidth={1.75} />
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-gold bg-brand-goldLight border border-brand-gold/30 px-2.5 py-0.5 font-semibold">
-                      {track.titleTr}
-                    </span>
                   </div>
                   <h3 className="text-xl font-display font-semibold mb-2 leading-snug text-brand-black group-hover:text-brand-goldDark transition-colors">
                     {track.title}
@@ -308,7 +303,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="Partnership & Support"
           title="Organizing & Collaborating Institutions"
-          description={`ICAID 2026 is organized by ${conferenceData.organizer} in academic and technological partnership with leading Turkish research and development institutions.`}
+          description={`ICAAD 2026 is organized by ${conferenceData.organizer} in academic and technological partnership with leading Turkish research and development institutions.`}
           className="mb-16"
         />
 
@@ -392,7 +387,7 @@ export default function Home() {
               </div>
 
               <div className="pt-4 border-t border-brand-border flex items-center justify-between text-xs font-mono">
-                <span className="text-brand-blackLight">ICAID 2026 Partner</span>
+                <span className="text-brand-blackLight">ICAAD 2026 Partner</span>
                 <a
                   href={partner.website}
                   target="_blank"

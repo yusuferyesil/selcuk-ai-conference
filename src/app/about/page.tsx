@@ -14,7 +14,7 @@ export default function About() {
   return (
     <div className="pt-24 pb-10">
       <PageHeader
-        eyebrow="ICAID 2026"
+        eyebrow="ICAAD 2026"
         title="About the Conference"
         description="Advancing the frontiers of artificial intelligence through rigorous academic exchange and global collaboration."
       />
@@ -59,7 +59,7 @@ export default function About() {
         <MotionDiv variants={fadeUpVariant} className="max-w-5xl mx-auto">
           <h2 className="text-3xl font-display font-medium mb-4 text-brand-black text-center">Collaborating Organizations</h2>
           <p className="text-center text-brand-blackLight font-light max-w-2xl mx-auto mb-14">
-            ICAID 2026 is proud to partner with distinguished Turkish research and technical cooperation organizations:
+            ICAAD 2026 is proud to partner with distinguished Turkish research and technical cooperation organizations:
           </p>
 
           <div className="grid md:grid-cols-2 gap-8">
@@ -86,7 +86,7 @@ export default function About() {
                   <p className="text-sm font-light text-brand-blackLight leading-relaxed">{collab.description}</p>
                 </div>
                 <div className="mt-8 pt-4 border-t border-brand-border flex justify-between items-center text-xs font-mono">
-                  <span className="text-brand-blackLight">ICAID 2026 Partner</span>
+                  <span className="text-brand-blackLight">ICAAD 2026 Partner</span>
                   <a
                     href={collab.website}
                     target="_blank"

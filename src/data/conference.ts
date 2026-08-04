@@ -8,8 +8,8 @@ export interface Track {
 
 export const conferenceData = {
   name: "International Conference on AI Across Disciplines",
-  shortName: "ICAID",
-  edition: "ICAID 2026",
+  shortName: "ICAAD",
+  edition: "ICAAD 2026",
   organizer: "Selçuk University",
   date: "October 23–25, 2026",
   dateTr: "23–25 Ekim 2026",
@@ -27,7 +27,6 @@ export const conferenceData = {
       "https://www.google.com/maps/search/?api=1&query=Sel%C3%A7uk+%C3%9Cniversitesi+S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi+Konya",
   },
   email: "contact@aiacrossdisciplines.edu.tr",
-  phone: "+90 332 241 00 41",
   stats: [
     { value: "3", label: "Conference Days" },
     { value: "6", label: "Disciplinary Tracks" },
@@ -115,6 +114,7 @@ export const conferenceData = {
     },
   ],
   navLinks: [
+    { label: "Home", href: "/" },
     { label: "About", href: "/about" },
     {
       label: "Conference",
@@ -146,7 +146,7 @@ export const conferenceData = {
     name: "Selçuk University",
     fullName: "Selçuk University",
     role: "Host & Main Organizer",
-    description: "Established in 1975 in Konya, Selçuk University is one of Turkey's largest comprehensive research institutions, hosting ICAID 2026 across its state-of-the-art academic facilities.",
+    description: "Established in 1975 in Konya, Selçuk University is one of Turkey's largest comprehensive research institutions, hosting ICAAD 2026 across its state-of-the-art academic facilities.",
     logo: "/images/collaborators/selcuk.png",
     website: "https://www.selcuk.edu.tr",
   },

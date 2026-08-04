@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Mail, MapPin, Phone } from "lucide-react"
+import { Mail, MapPin } from "lucide-react"
 import { conferenceData } from "@/data/conference"
 
 export default function Footer() {
@@ -70,12 +70,6 @@ export default function Footer() {
                 <Mail size={14} className="text-brand-gold/70 shrink-0" />
                 <a href={`mailto:${conferenceData.email}`} className="text-brand-gray/60 hover:text-white transition-colors break-all">
                   {conferenceData.email}
-                </a>
-              </li>
-              <li className="flex items-center gap-2.5 text-sm font-light">
-                <Phone size={14} className="text-brand-gold/70 shrink-0" />
-                <a href={`tel:${conferenceData.phone.replace(/\s/g, "")}`} className="text-brand-gray/60 hover:text-white transition-colors">
-                  {conferenceData.phone}
                 </a>
               </li>
             </ul>

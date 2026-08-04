@@ -38,7 +38,7 @@ const feeTiers = [
     badge: "Complimentary",
     featured: false,
     isFree: true,
-    description: "Full registration waiver for all international participants, speakers, and foreign delegates attending ICAID 2026.",
+    description: "Full registration waiver for all international participants, speakers, and foreign delegates attending ICAAD 2026.",
   },
 ];
 
@@ -133,7 +133,7 @@ export default function Registration() {
                 </div>
                 <h3 className="text-2xl font-display font-medium text-white">Free Registration for International Attendees</h3>
                 <p className="text-brand-gray text-sm font-light max-w-2xl">
-                  ICAID 2026 welcomes overseas researchers, foreign faculty, and international students free of registration charges to foster global collaboration.
+                  ICAAD 2026 welcomes overseas researchers, foreign faculty, and international students free of registration charges to foster global collaboration.
                 </p>
               </div>
               <Button variant="gold" className="shrink-0 font-bold">

@@ -8,7 +8,7 @@ import { ExternalLink } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Keynote Speakers",
-  description: "Invited keynote speakers at ICAID 2026.",
+  description: "Invited keynote speakers at ICAAD 2026.",
 }
 
 export default function Keynotes() {
@@ -17,7 +17,7 @@ export default function Keynotes() {
       <PageHeader
         eyebrow="Invited Talks"
         title="Keynote Speakers"
-        description="Pioneering researchers and industry leaders presenting keynote lectures at ICAID 2026."
+        description="Pioneering researchers and industry leaders presenting keynote lectures at ICAAD 2026."
       />
 
       <Section>
@@ -49,11 +49,6 @@ export default function Keynotes() {
                   <h2 className="text-3xl md:text-4xl font-display font-semibold text-brand-black mb-1">{speaker.name}</h2>
                   <p className="text-base text-brand-goldDark font-semibold mb-1">{speaker.role}</p>
                   <p className="text-xs font-mono text-brand-blackLight uppercase tracking-wider mb-6">{speaker.affiliation}</p>
-
-                  <div className="bg-brand-surface p-6 mb-6 border-l-4 border-brand-gold border-y border-r border-brand-border">
-                    <h3 className="text-[10px] font-mono uppercase tracking-[0.2em] text-brand-gold mb-1">Keynote Lecture Topic</h3>
-                    <p className="text-xl font-display font-medium text-brand-black">{speaker.topic}</p>
-                  </div>
 
                   <p className="text-brand-blackLight font-light leading-relaxed text-base mb-6">
                     {speaker.bio}

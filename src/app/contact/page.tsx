@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/ui/PageHeader"
 import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/MotionDiv"
 import { ContactForm } from "@/components/ContactForm"
 import { conferenceData } from "@/data/conference"
-import { MapPin, Mail, Phone } from "lucide-react"
+import { MapPin, Mail } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -37,18 +37,8 @@ export default function Contact() {
                   <Mail size={20} />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-brand-black mb-1">General Inquiries</h3>
+                  <h3 className="font-semibold text-brand-black mb-1">General Inquiries & Secretariat</h3>
                   <a href={`mailto:${conferenceData.email}`} className="text-brand-blackLight hover:text-brand-accent transition-colors font-light break-all">{conferenceData.email}</a>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 shrink-0 bg-brand-accentLight text-brand-accent rounded-sm flex items-center justify-center">
-                  <Phone size={20} />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-brand-black mb-1">Conference Secretariat</h3>
-                  <a href={`tel:${conferenceData.phone.replace(/\s/g, "")}`} className="text-brand-blackLight hover:text-brand-accent transition-colors font-light">{conferenceData.phone}</a>
                 </div>
               </div>
 

@@ -9,7 +9,7 @@ import { Download, BookOpen, Calendar, Layers } from "lucide-react"
 
 export const metadata: Metadata = {
   title: "Call for Papers",
-  description: "Submit your original research across six interdisciplinary tracks at ICAID 2026.",
+  description: "Submit your original research across six interdisciplinary tracks at ICAAD 2026.",
 }
 
 export default function CFP() {
@@ -31,23 +31,18 @@ export default function CFP() {
               All submitted papers must be formatted according to the IEEE double-column conference proceedings template. Submissions must be entirely original and not concurrently under review at another conference or journal. Full papers should be 6–8 pages including references; short papers should be 4 pages.
             </p>
             <div className="flex flex-wrap gap-4 mt-6">
-              <Button variant="outline" className="flex items-center gap-2"><Download size={16} /> LaTeX Template</Button>
               <Button variant="outline" className="flex items-center gap-2"><Download size={16} /> Word Template</Button>
             </div>
           </MotionDiv>
 
           <MotionDiv variants={fadeUpVariant} className="mb-16">
             <h2 className="text-3xl font-display font-medium mb-2 text-brand-black">Conference Tracks & Topics</h2>
-            <p className="text-sm font-mono text-brand-gold uppercase tracking-[0.2em] mb-8 pb-4 border-b border-brand-border">Six Disciplinary Domains</p>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {conferenceData.tracks.map((track) => (
                 <div key={track.id} className="bg-white border border-brand-border p-7 relative rounded-sm shadow-soft">
                   <div className="flex items-center justify-between mb-4 pb-3 border-b border-brand-border">
                     <h3 className="text-xl font-display font-semibold text-brand-black">{track.title}</h3>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-black bg-brand-goldLight border border-brand-gold/40 px-2 py-0.5 font-bold">
-                      {track.titleTr}
-                    </span>
                   </div>
                   <ul className="space-y-2.5 text-sm text-brand-blackLight font-light">
                     {track.topics.map((topic, i) => (
@@ -55,7 +50,6 @@ export default function CFP() {
                         <span className="text-brand-gold font-bold text-xs mt-0.5">✦</span>
                         <span>
                           <strong className="font-medium text-brand-black block">{topic.name}</strong>
-                          <span className="text-xs text-brand-blackLight/70 font-mono">{topic.nameTr}</span>
                         </span>
                       </li>
                     ))}
