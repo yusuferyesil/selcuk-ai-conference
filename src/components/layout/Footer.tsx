@@ -27,9 +27,9 @@ export default function Footer() {
               <Image
                 src="/images/logo/logo.png"
                 alt=""
-                width={44}
-                height={44}
-                className="w-11 h-11 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
+                width={60}
+                height={60}
+                className="w-14 h-14 object-contain opacity-90 group-hover:opacity-100 transition-opacity"
               />
               <div className="flex flex-col">
                 <span className="font-display font-bold text-white text-base leading-tight">{conferenceData.edition}</span>

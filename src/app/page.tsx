@@ -1,14 +1,14 @@
 import Link from "next/link"
 import Image from "next/image"
 import { conferenceData } from "@/data/conference"
-import { keynoteSpeakers } from "@/data/speakers"
+import { allSpeakers } from "@/data/speakers"
 import { importantDates } from "@/data/dates"
 import { Button } from "@/components/ui/Button"
 import { Section } from "@/components/ui/Section"
 import { SectionHeading } from "@/components/ui/SectionHeading"
 import { Countdown } from "@/components/ui/Countdown"
 import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/MotionDiv"
-import { ArrowRight, MapPin, FlaskConical, HeartPulse, Sprout, Scale, TrendingUp, Users } from "lucide-react"
+import { ArrowRight, MapPin, FlaskConical, HeartPulse, Sprout, Scale, TrendingUp, Users, BookOpen, Sparkles } from "lucide-react"
 import { cn } from "@/lib/utils"
 
 /* Eight-pointed Seljuk star — the site's signature mark */
@@ -30,6 +30,7 @@ const trackIcons: Record<string, any> = {
   law: Scale,
   economics: TrendingUp,
   "social-sciences": Users,
+  "philosophy-sociology": BookOpen,
 };
 
 export default function Home() {
@@ -185,19 +186,23 @@ export default function Home() {
       <Section id="tracks" className="bg-brand-surface border-y border-brand-border">
         <SectionHeading
           eyebrow="Research areas"
-          title="Six disciplinary tracks"
-          description="Submissions are reviewed within six interdisciplinary domains, spanning engineering, medicine, agriculture, law, economics, and social sciences."
+          title="Conference Topics"
+          description="Submissions are reviewed across seven interdisciplinary domains, spanning engineering, medicine, agriculture, law, economics, social sciences, and philosophy & sociology."
           className="mb-16"
         />
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {conferenceData.tracks.map((track) => {
+          {conferenceData.tracks.map((track, i) => {
             const Icon = trackIcons[track.id] || FlaskConical;
+            const isLast = i === conferenceData.tracks.length - 1;
             return (
               <MotionDiv
                 key={track.id}
                 variants={fadeUpVariant}
-                className="relative bg-white border border-brand-border p-8 group hover:shadow-soft transition-all duration-300 flex flex-col justify-between"
+                className={cn(
+                  "relative bg-white border border-brand-border p-8 group hover:shadow-soft transition-all duration-300 flex flex-col justify-between",
+                  isLast && "md:col-span-2 lg:col-span-1 lg:col-start-2"
+                )}
               >
                 <span className="absolute top-0 left-0 h-1 w-0 bg-brand-gold group-hover:w-full transition-all duration-500" aria-hidden />
                 <div>
@@ -227,13 +232,13 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* ————— Keynotes ————— */}
-      <Section id="keynotes" className="bg-brand-bg">
+      {/* ————— Plenary & Keynote Speakers ————— */}
+      <Section id="speakers" className="bg-brand-bg">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <SectionHeading
-            eyebrow="Invited talks"
-            title="Keynote speakers"
-            description="Leading researchers on the methods and consequences of AI across fields."
+            eyebrow="Distinguished lectures"
+            title="Plenary & Keynote Speakers"
+            description="Leading researchers and industry pioneers presenting at ICAAD 2026."
           />
           <MotionDiv variants={fadeUpVariant} className="shrink-0">
             <Link href="/keynotes">
@@ -242,28 +247,50 @@ export default function Home() {
           </MotionDiv>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-10">
-          {keynoteSpeakers.map((speaker) => (
-            <MotionDiv key={speaker.id} variants={fadeUpVariant}>
-              <Link href="/keynotes" className="group block">
-                <div className="aspect-[3/4] mb-6 overflow-hidden relative border border-brand-border">
-                  <Image
-                    src={speaker.image}
-                    alt={speaker.name}
-                    fill
-                    sizes="(min-width: 768px) 33vw, 100vw"
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
-                  />
-                  {/* Gold bottom overlay on hover */}
-                  <div className="absolute bottom-0 inset-x-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" aria-hidden />
-                </div>
-                <h3 className="text-xl font-display font-medium text-brand-black mb-1 group-hover:text-brand-gold transition-colors">{speaker.name}</h3>
-                <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-gold mb-2">{speaker.role}</p>
-                <p className="text-brand-blackLight text-sm font-light">{speaker.affiliation}</p>
-              </Link>
-            </MotionDiv>
-          ))}
-        </div>
+        {allSpeakers.length > 0 ? (
+          <div className="grid md:grid-cols-3 gap-10">
+            {allSpeakers.map((speaker) => (
+              <MotionDiv key={speaker.id} variants={fadeUpVariant}>
+                <Link href="/keynotes" className="group block">
+                  <div className="aspect-[3/4] mb-6 overflow-hidden relative border border-brand-border">
+                    <Image
+                      src={speaker.image}
+                      alt={speaker.name}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 100vw"
+                      className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    />
+                    {/* Gold bottom overlay on hover */}
+                    <div className="absolute bottom-0 inset-x-0 h-1 bg-brand-gold scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" aria-hidden />
+                  </div>
+                  <h3 className="text-xl font-display font-medium text-brand-black mb-1 group-hover:text-brand-gold transition-colors">{speaker.name}</h3>
+                  <p className="font-mono text-[11px] uppercase tracking-[0.18em] text-brand-gold mb-2">{speaker.role}</p>
+                  <p className="text-brand-blackLight text-sm font-light">{speaker.affiliation}</p>
+                </Link>
+              </MotionDiv>
+            ))}
+          </div>
+        ) : (
+          <MotionDiv
+            variants={fadeUpVariant}
+            className="bg-white border border-brand-border p-10 md:p-14 text-center max-w-3xl mx-auto shadow-soft"
+          >
+            <div className="inline-flex items-center justify-center w-14 h-14 border border-brand-gold/40 bg-brand-goldLight mb-6 text-brand-gold">
+              <Sparkles size={24} />
+            </div>
+            <h3 className="text-2xl font-display font-semibold text-brand-black mb-3">
+              Speakers Will Be Announced Soon
+            </h3>
+            <p className="text-brand-blackLight font-light text-base max-w-xl mx-auto leading-relaxed mb-8">
+              Distinguished plenary, keynote, and invited scholars from international academia and industry leaders are currently being finalized.
+            </p>
+            <Link href="/keynotes">
+              <Button variant="outline" size="sm">
+                View Speaker Information
+              </Button>
+            </Link>
+          </MotionDiv>
+        )}
       </Section>
 
       {/* ————— Important dates ————— */}
@@ -352,7 +379,7 @@ export default function Home() {
             </div>
           </MotionDiv>
 
-          {/* Collaborating Partners: Roketsan & TİKA */}
+          {/* Collaborating Partners: Küme Vakfı & TİKA */}
           {conferenceData.collaborators.map((partner) => (
             <MotionDiv
               key={partner.id}
@@ -418,8 +445,8 @@ export default function Home() {
             <SectionHeading
               dark
               eyebrow="Registration"
-              title="Join us in Konya this November"
-              description="Early bird registration closes on September 15, 2026. Each accepted paper requires at least one full registration."
+              title="Join us in Konya this October"
+              description="Early bird registration closes on October 10, 2026. Each accepted paper requires at least one full registration."
               className="max-w-none"
             />
             <div className="flex flex-col sm:flex-row gap-4 mt-10">

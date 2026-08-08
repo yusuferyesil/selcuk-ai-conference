@@ -49,8 +49,8 @@ export default function Contact() {
                 <div>
                   <h3 className="font-semibold text-brand-black mb-1">Mailing Address</h3>
                   <address className="not-italic text-brand-blackLight font-light leading-relaxed">
-                    {conferenceData.edition} Organizing Committee<br />
-                    Faculty of Technology, Selçuk University<br />
+                    {conferenceData.edition} Organizing Secretariat<br />
+                    Selçuk University Congress Center<br />
                     Alaeddin Keykubat Kampüsü<br />
                     42130 Selçuklu, Konya / Turkey
                   </address>

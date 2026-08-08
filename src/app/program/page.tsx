@@ -72,7 +72,7 @@ export default function Program() {
                 {
                   icon: FileText,
                   label: "Paper Sessions",
-                  desc: "40+ oral presentation sessions across 6 disciplinary tracks",
+                  desc: "40+ oral presentation sessions across 7 disciplinary tracks",
                 },
                 {
                   icon: Bell,

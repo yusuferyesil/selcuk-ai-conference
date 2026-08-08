@@ -1,6 +1,6 @@
-# ICAID 2026 — Konferans Web Sitesi
+# ICAAD 2026 — Konferans Web Sitesi
 
-Selçuk Üniversitesi tarafından düzenlenen **International Conference on AI Across Disciplines (ICAID 2026)** web sitesi.
+Selçuk Üniversitesi tarafından düzenlenen **International Conference on AI Across Disciplines (ICAAD 2026)** web sitesi.
 Next.js 14 (App Router) + TypeScript + Tailwind CSS + Framer Motion ile geliştirilmiştir.
 
 ## Tasarım Sistemi

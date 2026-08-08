@@ -5,11 +5,12 @@ import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/Moti
 import { Button } from "@/components/ui/Button"
 import { importantDates } from "@/data/dates"
 import { conferenceData } from "@/data/conference"
-import { Download, BookOpen, Calendar, Layers } from "lucide-react"
+import { Download, BookOpen, Calendar } from "lucide-react"
+import { cn } from "@/lib/utils"
 
 export const metadata: Metadata = {
   title: "Call for Papers",
-  description: "Submit your original research across six interdisciplinary tracks at ICAAD 2026.",
+  description: "Submit your original research across seven interdisciplinary tracks at ICAAD 2026.",
 }
 
 export default function CFP() {
@@ -18,7 +19,7 @@ export default function CFP() {
       <PageHeader
         eyebrow="Participate"
         title="Call for Papers"
-        description="We invite original, unpublished research papers across six major interdisciplinary AI domains."
+        description="We invite original, unpublished research papers across seven major interdisciplinary AI domains."
       >
         <Button size="lg" className="shadow-gold font-bold">Submit via CMT</Button>
       </PageHeader>
@@ -36,26 +37,35 @@ export default function CFP() {
           </MotionDiv>
 
           <MotionDiv variants={fadeUpVariant} className="mb-16">
-            <h2 className="text-3xl font-display font-medium mb-2 text-brand-black">Conference Tracks & Topics</h2>
+            <h2 className="text-3xl font-display font-medium mb-6 text-brand-black border-b border-brand-border pb-4">Conference Topics</h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {conferenceData.tracks.map((track) => (
-                <div key={track.id} className="bg-white border border-brand-border p-7 relative rounded-sm shadow-soft">
-                  <div className="flex items-center justify-between mb-4 pb-3 border-b border-brand-border">
-                    <h3 className="text-xl font-display font-semibold text-brand-black">{track.title}</h3>
+              {conferenceData.tracks.map((track, idx) => {
+                const isLast = idx === conferenceData.tracks.length - 1;
+                return (
+                  <div
+                    key={track.id}
+                    className={cn(
+                      "bg-white border border-brand-border p-7 relative rounded-sm shadow-soft",
+                      isLast && "md:col-span-2 lg:col-span-1 lg:col-start-2"
+                    )}
+                  >
+                    <div className="flex items-center justify-between mb-4 pb-3 border-b border-brand-border">
+                      <h3 className="text-xl font-display font-semibold text-brand-black">{track.title}</h3>
+                    </div>
+                    <ul className="space-y-2.5 text-sm text-brand-blackLight font-light">
+                      {track.topics.map((topic, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className="text-brand-gold font-bold text-xs mt-0.5">✦</span>
+                          <span>
+                            <strong className="font-medium text-brand-black block">{topic.name}</strong>
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
-                  <ul className="space-y-2.5 text-sm text-brand-blackLight font-light">
-                    {track.topics.map((topic, i) => (
-                      <li key={i} className="flex items-start gap-2">
-                        <span className="text-brand-gold font-bold text-xs mt-0.5">✦</span>
-                        <span>
-                          <strong className="font-medium text-brand-black block">{topic.name}</strong>
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </MotionDiv>
 

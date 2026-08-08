@@ -69,19 +69,19 @@ export default function Navbar() {
       <div className="absolute top-0 inset-x-0 h-0.5 bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark pointer-events-none" aria-hidden />
 
       <div className="container mx-auto px-6 max-w-7xl flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3 group" aria-label={`${conferenceData.edition} home`}>
+        <Link href="/" className="flex items-center gap-3.5 group" aria-label={`${conferenceData.edition} home`}>
           <Image
             src="/images/logo/logo.png"
-            alt=""
-            width={44}
-            height={44}
-            className="w-11 h-11 object-contain"
+            alt="ICAAD 2026 Logo"
+            width={70}
+            height={70}
+            className="w-16 h-16 object-contain transition-transform duration-300 group-hover:scale-105"
           />
           <div className="hidden md:flex flex-col leading-tight">
-            <span className="font-display font-semibold text-brand-black tracking-tight">
+            <span className="font-display font-bold text-brand-black text-lg tracking-tight">
               {conferenceData.edition}
             </span>
-            <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-brand-gold">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-gold font-medium">
               {conferenceData.organizer}
             </span>
           </div>

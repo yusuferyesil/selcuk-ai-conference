@@ -22,10 +22,10 @@ export default function About() {
       <Section>
         <div className="grid md:grid-cols-2 gap-16">
           <MotionDiv variants={fadeUpVariant}>
-            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold border-l-2 border-brand-gold pl-3 mb-5">Our Vision</p>
+            <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold border-l-2 border-brand-gold pl-3 mb-5">Conference Overview</p>
             <h2 className="text-3xl font-display font-medium mb-6 text-brand-black leading-tight">Our Vision</h2>
             <p className="text-lg text-brand-blackLight font-light leading-relaxed mb-6">
-              The {conferenceData.name} ({conferenceData.shortName}), organized by {conferenceData.organizer} in collaboration with Roketsan and TİKA, was established to provide a premier international forum for researchers, developers, and practitioners to present and discuss the most recent innovations, trends, results, and concerns in Artificial Intelligence.
+              The {conferenceData.name} ({conferenceData.shortName}), organized by {conferenceData.organizer} in collaboration with Küme Vakfı and TİKA, was established to provide a premier international forum for researchers, developers, and practitioners to present and discuss the most recent innovations, trends, results, and concerns in Artificial Intelligence.
             </p>
             <p className="text-lg text-brand-blackLight font-light leading-relaxed">
               As AI increasingly permeates cognitive processes, industrial automation, and social structures, {conferenceData.shortName} aims to foster a multidisciplinary dialogue that ensures these technologies are developed responsibly, robustly, and transparently.

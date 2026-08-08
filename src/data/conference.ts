@@ -24,13 +24,13 @@ export const conferenceData = {
     mapEmbedUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=32.4750%2C37.9950%2C32.5450%2C38.0500&layer=mapnik&marker=38.0230%2C32.5100",
     mapLink:
-      "https://www.google.com/maps/search/?api=1&query=Sel%C3%A7uk+%C3%9Cniversitesi+S%C3%BCleyman+Demirel+K%C3%BClt%C3%BCr+Merkezi+Konya",
+      "https://www.google.com/maps/search/?api=1&query=Sel%C3%A7uk+%C3%9Cniversitesi+Kongre+Merkezi+Konya",
   },
-  email: "contact@aiacrossdisciplines.edu.tr",
+  email: "icaad@selcuk.edu.tr",
   stats: [
     { value: "3", label: "Conference Days" },
-    { value: "6", label: "Disciplinary Tracks" },
-    { value: "30+", label: "Subtopic Domains" },
+    { value: "7", label: "Disciplinary Tracks" },
+    { value: "35+", label: "Subtopic Domains" },
     { value: "40+", label: "Paper Sessions" },
   ],
   tracks: [
@@ -112,6 +112,19 @@ export const conferenceData = {
         { name: "AI & Social Behavior Analysis", nameTr: "Yapay Zeka ve Sosyal Davranış Analizi" },
       ],
     },
+    {
+      id: "philosophy-sociology",
+      title: "Philosophy & Sociology",
+      titleTr: "Felsefe & Sosyoloji",
+      description: "Epistemology of AI, AI ethics, digital sociology, human-AI coexistence, and philosophical implications of machine intelligence.",
+      topics: [
+        { name: "Epistemology & Philosophy of Artificial Intelligence", nameTr: "Yapay Zekanın Epistemolojisi ve Felsefesi" },
+        { name: "Digital Sociology & AI Social Structures", nameTr: "Dijital Sosyoloji ve YZ Sosyal Yapıları" },
+        { name: "AI Ethics, Morality & Value Alignment", nameTr: "YZ Etiği, Ahlak ve Değer Uyumlaması" },
+        { name: "Human-Machine Coexistence & Posthumanism", nameTr: "İnsan-Makine Birlikteliği ve Posthümanizm" },
+        { name: "Social Change & Algorithmic Governance", nameTr: "Sosyal Değişim ve Algoritmik Yönetişim" },
+      ],
+    },
   ],
   navLinks: [
     { label: "Home", href: "/" },
@@ -121,7 +134,7 @@ export const conferenceData = {
       children: [
         { label: "Important Dates", href: "/dates" },
         { label: "Program", href: "/program" },
-        { label: "Keynotes", href: "/keynotes" },
+        { label: "Speakers", href: "/keynotes" },
         { label: "Committees", href: "/committee" },
       ],
     },
@@ -152,14 +165,14 @@ export const conferenceData = {
   },
   collaborators: [
     {
-      id: "roketsan",
-      name: "Roketsan",
-      fullName: "ROKETSAN Missiles & Defense Inc.",
+      id: "kumevakfi",
+      name: "Küme Vakfı",
+      fullName: "Kültür ve Medeniyet Vakfı (KÜME)",
       type: "Collaborating Partner",
       role: "Collaborating Partner",
-      description: "Turkey's premier defense technology enterprise, supporting AI advancement in autonomous systems, high-performance computing, and advanced engineering.",
-      logo: "/images/collaborators/roketsan.svg",
-      website: "https://www.roketsan.com.tr/en",
+      description: "A leading Turkish foundation dedicated to interdisciplinary culture, civilization, technology policies, academic research, and social development.",
+      logo: "/images/collaborators/kumevakfi.svg",
+      website: "https://kumevakfi.org/",
     },
     {
       id: "tika",
