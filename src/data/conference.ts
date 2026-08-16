@@ -14,17 +14,17 @@ export const conferenceData = {
   date: "October 23–25, 2026",
   dateTr: "23–25 Ekim 2026",
   startDateISO: "2026-10-23T09:00:00+03:00",
-  location: "Selçuk University Congress Center, Konya, Turkey",
+  location: "Sultan Alparslan Cultural Center (SAKM), Selçuk University, Konya, Türkiye",
   address: {
     lines: [
-      "Selçuk University Congress Center",
-      "Alaeddin Keykubat Kampüsü",
-      "42130 Selçuklu, Konya / Turkey",
+      "Sultan Alparslan Cultural Center (SAKM)",
+      "Selçuk University, Alaeddin Keykubat Campus",
+      "42130 Selçuklu, Konya / Türkiye",
     ],
     mapEmbedUrl:
       "https://www.openstreetmap.org/export/embed.html?bbox=32.4750%2C37.9950%2C32.5450%2C38.0500&layer=mapnik&marker=38.0230%2C32.5100",
     mapLink:
-      "https://www.google.com/maps/search/?api=1&query=Sel%C3%A7uk+%C3%9Cniversitesi+Kongre+Merkezi+Konya",
+      "https://www.google.com/maps/search/?api=1&query=Sultan+Alparslan+K%C3%BClt%C3%BCr+Merkezi+Sel%C3%A7uk+%C3%9Cniversitesi+Konya",
   },
   email: "icaad@selcuk.edu.tr",
   stats: [
@@ -183,6 +183,16 @@ export const conferenceData = {
       description: "A leading global development and technical cooperation agency fostering international academic partnerships, capacity building, and cross-border scientific exchange.",
       logo: "/images/collaborators/tika.svg",
       website: "https://www.tika.gov.tr/en",
+    },
+    {
+      id: "kso",
+      name: "Konya Sanayi Odası",
+      fullName: "Konya Chamber of Industry (KSO)",
+      type: "Collaborating Partner",
+      role: "Collaborating Partner",
+      description: "Established in 1974, Konya Chamber of Industry drives regional industrial development, smart manufacturing, and university-industry AI cooperation.",
+      logo: "/images/collaborators/kso.png",
+      website: "https://www.kso.org.tr",
     },
   ],
 };

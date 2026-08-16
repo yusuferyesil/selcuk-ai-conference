@@ -21,7 +21,18 @@ export default function CFP() {
         title="Call for Papers"
         description="We invite original, unpublished research papers across seven major interdisciplinary AI domains."
       >
-        <Button size="lg" className="shadow-gold font-bold">Submit via CMT</Button>
+        <a
+          href="https://cmt3.research.microsoft.com/ICAAD2026"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center justify-center h-12 px-8 bg-brand-gold text-brand-black text-sm font-bold tracking-wide transition-all duration-200 hover:bg-brand-goldDark shadow-gold"
+        >
+          Submit via CMT
+        </a>
+        <p className="mt-4 text-sm text-brand-blackLight font-light leading-relaxed max-w-2xl mx-auto">
+          Submit your papers through the Microsoft Conference Management Toolkit (CMT) using the button above.
+          The Microsoft CMT service was used for managing the peer-reviewing process for this conference. This service was provided for free by Microsoft and they bore all expenses, including costs for Azure cloud services as well as for software development and support.
+        </p>
       </PageHeader>
 
       <Section>

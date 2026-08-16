@@ -160,12 +160,14 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden lg:flex items-center">
-          <Link
-            href="/registration"
+          <a
+            href="https://cmt3.research.microsoft.com/ICAAD2026"
+            target="_blank"
+            rel="noopener noreferrer"
             className="inline-flex items-center h-10 px-5 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
           >
-            Register
-          </Link>
+            Register Now
+          </a>
         </div>
 
         {/* Mobile Toggle */}
@@ -225,13 +227,15 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            <Link
-              href="/registration"
+            <a
+              href="https://cmt3.research.microsoft.com/ICAAD2026"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setMobileMenuOpen(false)}
               className="mt-3 inline-flex items-center justify-center h-11 px-5 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all"
             >
-              Register
-            </Link>
+              Register Now
+            </a>
           </motion.div>
         )}
       </AnimatePresence>

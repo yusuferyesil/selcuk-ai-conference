@@ -1,0 +1,12 @@
+Options -MultiViews
+RewriteEngine On
+
+# Serve pre-built static HTML files with trailing slash (Next.js trailingSlash: true)
+# /dates  →  dates/index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/_next/
+RewriteRule ^([^/]+)/?$ /$1/index.html [L]
+
+# Fallback: if a directory/index.html exists, serve it
+DirectoryIndex index.html

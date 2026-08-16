@@ -145,14 +145,16 @@ export const committeeData = {
   ],
   localOrganizingCommittee: [
     // ── Computer Engineering ────────────────────────────────────────────────
+    { name: "Dr. Öğr. Üyesi Selahattin Alan", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
     { name: "Arş. Gör. Dr. Musa Doğan", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
+    { name: "Arş. Gör. Ahmet Erharman", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
+    { name: "Arş. Gör. Yusuf Eryeşil", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
+    { name: "Doç. Dr. Gül Nihal Güğül", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
+    { name: "Arş. Gör. Mücahit Mustafa Sarıtaş", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
     { name: "Arş. Gör. Burak Tezcan", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
     { name: "Arş. Gör. Gülnihal Uykun", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
-    { name: "Arş. Gör. Yusuf Eryeşil", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
-    { name: "Arş. Gör. Mücahit Mustafa Sarıtaş", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
-    { name: "Arş. Gör. Ahmet Erharman", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Computer Engineering" },
     // ── Mechanical Engineering ─────────────────────────────────────────────
-    { name: "Arş. Gör. Ayşe Sena Yamaner", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Mechanical Engineering" },
     { name: "Arş. Gör. Ramazan Baran", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Mechanical Engineering" },
+    { name: "Arş. Gör. Ayşe Sena Yamaner", role: "Member", affiliation: "Selçuk University, Faculty of Technology, Dept. of Mechanical Engineering" },
   ],
 };

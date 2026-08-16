@@ -8,7 +8,7 @@ import { MapPin, Plane, Train, Hotel, ExternalLink, Navigation, Building2, Landm
 
 export const metadata: Metadata = {
   title: "Venue & Travel",
-  description: "How to reach the Selçuk University Congress Center in Konya, Turkey — venue details, travel options, and accommodation info.",
+  description: "How to reach Sultan Alparslan Cultural Center (SAKM) at Selçuk University in Konya, Türkiye — venue details, travel options, and accommodation info.",
 }
 
 export default function Venue() {
@@ -58,7 +58,7 @@ export default function Venue() {
           <MotionDiv variants={fadeUpVariant} className="space-y-10">
             <div className="border-b border-brand-border pb-4">
               <span className="font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">Conference Location</span>
-              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">Selçuk University Congress Center</h2>
+              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">Sultan Alparslan Cultural Center (SAKM)</h2>
             </div>
 
             <div className="grid lg:grid-cols-12 gap-10 items-stretch">
@@ -69,7 +69,7 @@ export default function Venue() {
                     <h3 className="text-xl font-display font-semibold text-brand-black">Campus & Facilities</h3>
                   </div>
                   <p className="text-brand-blackLight font-light leading-relaxed text-base">
-                    The conference takes place at the Selçuk University Congress Center, located on the spacious Alaeddin Keykubat Campus. The center features main hall auditoriums, multiple seminar rooms, and spacious foyers for networking.
+                    The conference takes place at the Sultan Alparslan Cultural Center (SAKM / Sultan Alparslan Kültür Merkezi), located on the Alaeddin Keykubat Campus of Selçuk University. The venue features the 885-seat 30 Ağustos Auditorium, the Malazgirt Hall, multiple seminar rooms, and spacious foyers for poster sessions and networking.
                   </p>
                 </div>
 
@@ -98,7 +98,7 @@ export default function Venue() {
               <div className="lg:col-span-6 border border-brand-border shadow-soft min-h-[340px] relative overflow-hidden bg-white">
                 <iframe
                   src={conferenceData.address.mapEmbedUrl}
-                  title="Map of Selçuk University Congress Center, Konya"
+                  title="Map of Sultan Alparslan Cultural Center (SAKM), Selçuk University, Konya"
                   className="absolute inset-0 w-full h-full border-0"
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
@@ -159,7 +159,7 @@ export default function Venue() {
                     <Navigation size={14} /> Campus Tram Access
                   </div>
                   <p className="text-xs text-brand-blackLight leading-relaxed">
-                    The Kampüs Tram Line connects the city center directly to the Alaeddin Keykubat Campus stop in front of the Congress Center.
+                    The Kampüs Tram Line connects the city center directly to the Alaeddin Keykubat Campus stop near Sultan Alparslan Cultural Center (SAKM).
                   </p>
                 </div>
               </div>

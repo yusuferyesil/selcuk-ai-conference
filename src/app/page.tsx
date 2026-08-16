@@ -80,14 +80,17 @@ export default function Home() {
               </MotionDiv>
 
               <MotionDiv variants={fadeUpVariant} className="flex flex-col sm:flex-row gap-4">
+                <a
+                  href="https://cmt3.research.microsoft.com/ICAAD2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center h-12 px-8 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all duration-200 shadow-gold w-full sm:w-auto"
+                >
+                  Register Now →
+                </a>
                 <Link href="/cfp">
-                  <Button size="lg" className="w-full sm:w-auto">
-                    Call for Papers
-                  </Button>
-                </Link>
-                <Link href="/program">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                    View Program
+                    Call for Papers
                   </Button>
                 </Link>
               </MotionDiv>
@@ -119,7 +122,7 @@ export default function Home() {
                 <dl className="divide-y divide-brand-border bg-white">
                   {[
                     { dt: "Dates", dd: conferenceData.date },
-                    { dt: "Venue", dd: "Selçuk University Congress Center, Konya" },
+                    { dt: "Venue", dd: "Sultan Alparslan Cultural Center (SAKM), Konya" },
                     { dt: "Format", dd: "In person · keynotes, paper sessions, panels" },
                     { dt: "Proceedings", dd: "Peer-reviewed, published post-conference" },
                   ].map((row) => (
@@ -333,11 +336,11 @@ export default function Home() {
           className="mb-16"
         />
 
-        <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {/* Host Institution */}
           <MotionDiv
             variants={fadeUpVariant}
-            className="bg-white border-2 border-brand-gold p-8 md:p-10 relative group hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
+            className="bg-white border-2 border-brand-gold p-6 md:p-8 relative group hover:shadow-gold transition-all duration-300 flex flex-col justify-between"
           >
             {/* Gold top bar */}
             <span className="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
@@ -379,12 +382,12 @@ export default function Home() {
             </div>
           </MotionDiv>
 
-          {/* Collaborating Partners: Küme Vakfı & TİKA */}
+          {/* Collaborating Partners: Küme Vakfı, TİKA & KSO */}
           {conferenceData.collaborators.map((partner) => (
             <MotionDiv
               key={partner.id}
               variants={fadeUpVariant}
-              className="bg-white border border-brand-border p-8 md:p-10 relative group hover:shadow-soft hover:border-brand-gold transition-all duration-300 flex flex-col justify-between"
+              className="bg-white border border-brand-border p-6 md:p-8 relative group hover:shadow-soft hover:border-brand-gold transition-all duration-300 flex flex-col justify-between"
             >
               <span className="absolute top-0 left-0 h-1 w-0 bg-brand-gold group-hover:w-full transition-all duration-500" aria-hidden />
 

@@ -50,9 +50,9 @@ export default function Contact() {
                   <h3 className="font-semibold text-brand-black mb-1">Mailing Address</h3>
                   <address className="not-italic text-brand-blackLight font-light leading-relaxed">
                     {conferenceData.edition} Organizing Secretariat<br />
-                    Selçuk University Congress Center<br />
-                    Alaeddin Keykubat Kampüsü<br />
-                    42130 Selçuklu, Konya / Turkey
+                    Sultan Alparslan Cultural Center (SAKM)<br />
+                    Selçuk University, Alaeddin Keykubat Campus<br />
+                    42130 Selçuklu, Konya / Türkiye
                   </address>
                 </div>
               </div>

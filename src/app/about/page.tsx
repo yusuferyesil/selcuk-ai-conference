@@ -25,7 +25,7 @@ export default function About() {
             <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold border-l-2 border-brand-gold pl-3 mb-5">Conference Overview</p>
             <h2 className="text-3xl font-display font-medium mb-6 text-brand-black leading-tight">Our Vision</h2>
             <p className="text-lg text-brand-blackLight font-light leading-relaxed mb-6">
-              The {conferenceData.name} ({conferenceData.shortName}), organized by {conferenceData.organizer} in collaboration with Küme Vakfı and TİKA, was established to provide a premier international forum for researchers, developers, and practitioners to present and discuss the most recent innovations, trends, results, and concerns in Artificial Intelligence.
+              The {conferenceData.name} ({conferenceData.shortName}), organized by {conferenceData.organizer} in collaboration with Küme Vakfı, TİKA, and Konya Sanayi Odası (KSO), was established to provide a premier international forum for researchers, developers, and practitioners to present and discuss the most recent innovations, trends, results, and concerns in Artificial Intelligence.
             </p>
             <p className="text-lg text-brand-blackLight font-light leading-relaxed">
               As AI increasingly permeates cognitive processes, industrial automation, and social structures, {conferenceData.shortName} aims to foster a multidisciplinary dialogue that ensures these technologies are developed responsibly, robustly, and transparently.
@@ -56,47 +56,37 @@ export default function About() {
       </Section>
 
       <Section className="bg-brand-surface border-t border-brand-border">
-        <MotionDiv variants={fadeUpVariant} className="max-w-5xl mx-auto">
+        <MotionDiv variants={fadeUpVariant} className="max-w-6xl mx-auto">
           <h2 className="text-3xl font-display font-medium mb-4 text-brand-black text-center">Collaborating Organizations</h2>
           <p className="text-center text-brand-blackLight font-light max-w-2xl mx-auto mb-14">
-            ICAAD 2026 is proud to partner with distinguished Turkish research and technical cooperation organizations:
+            ICAAD 2026 is proud to partner with distinguished Turkish research, industry, and technical cooperation organizations:
           </p>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {conferenceData.collaborators.map((collab) => (
-              <div key={collab.id} className="bg-white border border-brand-border p-8 rounded-sm shadow-soft flex flex-col justify-between group hover:border-brand-accent transition-all duration-300">
-                <div>
-                  <div className="flex items-center justify-between gap-4 mb-6 pb-6 border-b border-brand-border">
-                    <div className="relative h-12 w-44 overflow-hidden flex items-center">
-                      <Image
-                        src={collab.logo}
-                        alt={`${collab.name} logo`}
-                        width={200}
-                        height={50}
-                        className="object-contain object-left max-h-10 w-auto"
-                      />
-                    </div>
-                    <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-accent bg-brand-accentLight/60 px-2.5 py-1 font-semibold whitespace-nowrap">
-                      {collab.role}
-                    </span>
-                  </div>
+              <a
+                key={collab.id}
+                href={collab.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group bg-white border border-brand-border hover:border-brand-gold hover:shadow-gold transition-all duration-300 flex flex-col items-center justify-center gap-4 p-8"
+              >
+                {/* Logo area — fixed height, centred */}
+                <div className="flex items-center justify-center w-full h-20">
+                  <Image
+                    src={collab.logo}
+                    alt={`${collab.name} logo`}
+                    width={240}
+                    height={80}
+                    className="object-contain max-h-16 max-w-[200px] w-auto transition-opacity duration-300 group-hover:opacity-80"
+                  />
+                </div>
 
-                  <h3 className="text-2xl font-display font-semibold text-brand-black mb-1 group-hover:text-brand-accent transition-colors">{collab.name}</h3>
-                  <p className="font-mono text-xs text-brand-blackLight mb-4">{collab.fullName}</p>
-                  <p className="text-sm font-light text-brand-blackLight leading-relaxed">{collab.description}</p>
-                </div>
-                <div className="mt-8 pt-4 border-t border-brand-border flex justify-between items-center text-xs font-mono">
-                  <span className="text-brand-blackLight">ICAAD 2026 Partner</span>
-                  <a
-                    href={collab.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-accent hover:underline flex items-center gap-1 font-medium"
-                  >
-                    Visit Website &rarr;
-                  </a>
-                </div>
-              </div>
+                {/* Name */}
+                <p className="text-sm font-semibold text-brand-black text-center leading-tight group-hover:text-brand-gold transition-colors">
+                  {collab.name}
+                </p>
+              </a>
             ))}
           </div>
         </MotionDiv>
