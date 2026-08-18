@@ -14,6 +14,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = React.useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const [openDropdown, setOpenDropdown] = React.useState<number | null>(null)
+  const [barVisible, setBarVisible] = React.useState(true)
   const headerRef = React.useRef<HTMLElement>(null)
   const closeTimer = React.useRef<ReturnType<typeof setTimeout> | null>(null)
 
@@ -22,6 +23,13 @@ export default function Navbar() {
     handleScroll()
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  // Watch for bar dismissal via custom event from RegistrationBar
+  React.useEffect(() => {
+    const handler = () => setBarVisible(false)
+    window.addEventListener("regbar:dismiss", handler)
+    return () => window.removeEventListener("regbar:dismiss", handler)
   }, [])
 
   React.useEffect(() => {
@@ -59,7 +67,8 @@ export default function Navbar() {
     <header
       ref={headerRef}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 border-b",
+        "fixed left-0 right-0 z-50 transition-all duration-300 border-b",
+        barVisible ? "top-[42px]" : "top-0",
         isScrolled || mobileMenuOpen || openDropdown !== null
           ? "glass py-3 border-brand-border"
           : "bg-white/90 backdrop-blur-sm border-transparent py-5"
@@ -166,7 +175,7 @@ export default function Navbar() {
             rel="noopener noreferrer"
             className="inline-flex items-center h-10 px-5 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all duration-200 shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2"
           >
-            Register Now
+            Submit Paper
           </a>
         </div>
 
@@ -234,7 +243,7 @@ export default function Navbar() {
               onClick={() => setMobileMenuOpen(false)}
               className="mt-3 inline-flex items-center justify-center h-11 px-5 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all"
             >
-              Register Now
+              Submit Paper
             </a>
           </motion.div>
         )}

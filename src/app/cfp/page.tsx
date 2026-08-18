@@ -19,7 +19,7 @@ export default function CFP() {
       <PageHeader
         eyebrow="Participate"
         title="Call for Papers"
-        description="We invite original, unpublished research papers across seven major interdisciplinary AI domains."
+        description="We invite original, unpublished research contributions — both full papers and poster abstracts — across seven major interdisciplinary AI domains."
       >
         <a
           href="https://cmt3.research.microsoft.com/ICAAD2026"
@@ -39,9 +39,26 @@ export default function CFP() {
         <MotionDiv variants={staggerContainer} className="max-w-6xl mx-auto">
           <MotionDiv variants={fadeUpVariant} className="mb-16">
             <h2 className="text-3xl font-display font-medium mb-6 text-brand-black border-b border-brand-border pb-4">Submission Guidelines</h2>
-            <p className="text-lg text-brand-blackLight font-light leading-relaxed mb-6">
-              All submitted papers must be formatted according to the IEEE double-column conference proceedings template. Submissions must be entirely original and not concurrently under review at another conference or journal. Full papers should be 6–8 pages including references; short papers should be 4 pages.
-            </p>
+            <div className="space-y-6 mb-6">
+              <div className="border-l-2 border-brand-gold pl-5">
+                <p className="font-semibold text-brand-black mb-1">Full & Short Papers (Oral Presentation)</p>
+                <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                  All submitted papers must be formatted according to the IEEE double-column conference proceedings template. Submissions must be entirely original and not concurrently under review at another conference or journal. Full papers should be 6–8 pages including references; short papers should be 4 pages.
+                </p>
+              </div>
+              <div className="border-l-2 border-brand-gold pl-5">
+                <p className="font-semibold text-brand-black mb-1">Poster Abstracts (Poster Presentation)</p>
+                <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                  Extended abstracts of 1–2 pages may be submitted for poster presentation. Poster abstracts follow the same IEEE template and originality requirements. Accepted poster abstracts will be included in the conference abstract book and presented during dedicated poster sessions.
+                </p>
+              </div>
+              <div className="border-l-2 border-brand-gold pl-5">
+                <p className="font-semibold text-brand-black mb-1">Undergraduate Research Projects</p>
+                <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                  Bachelor&apos;s degree students are invited to submit their research projects for the dedicated <strong className="text-brand-black">Undergraduate Student Session</strong>. Submissions consist of a 1–2 page extended abstract. Accepted contributions will be presented during a dedicated session and included in the abstract book. Participation is free of charge.
+                </p>
+              </div>
+            </div>
             <div className="flex flex-wrap gap-4 mt-6">
               <Button variant="outline" className="flex items-center gap-2"><Download size={16} /> Word Template</Button>
             </div>
@@ -85,7 +102,7 @@ export default function CFP() {
             <div className="flex items-start gap-4 bg-brand-surface border border-brand-border p-8 rounded-sm">
               <BookOpen className="text-brand-accent shrink-0 mt-1" size={28} />
               <p className="text-lg text-brand-blackLight font-light leading-relaxed">
-                All accepted and presented papers will be published in the official conference proceedings. Selected high-quality papers will be invited for extended versions in partner peer-reviewed journals. Details on indexing will be announced on this page.
+                All presented papers will be published in the official conference abstract book. Poster abstracts will likewise be included in the abstract book. Selected high-quality papers may be invited for extended versions in partner journals. Details on indexing will be announced on this page.
               </p>
             </div>
           </MotionDiv>

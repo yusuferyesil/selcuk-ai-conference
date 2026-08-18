@@ -58,9 +58,15 @@ export default function Home() {
               </MotionDiv>
 
               <MotionDiv variants={fadeUpVariant}>
-                <h1 className="font-display font-medium text-brand-black tracking-tight leading-[1.06] text-[2.75rem] sm:text-6xl lg:text-7xl mb-6">
+                <h1 className="font-display font-medium text-brand-black tracking-tight leading-[1.06] text-[2.75rem] sm:text-6xl lg:text-7xl mb-4">
                   International Conference on AI Across Disciplines
                 </h1>
+              </MotionDiv>
+
+              <MotionDiv variants={fadeUpVariant}>
+                <p className="font-mono text-xs uppercase tracking-[0.2em] text-brand-gold border-l-2 border-brand-gold pl-3 mb-6">
+                  {conferenceData.motto}
+                </p>
               </MotionDiv>
 
               <MotionDiv variants={fadeUpVariant}>
@@ -71,7 +77,7 @@ export default function Home() {
 
               <MotionDiv variants={fadeUpVariant}>
                 <p className="text-lg md:text-xl text-brand-blackLight font-light leading-relaxed max-w-2xl mb-10">
-                  A peer-reviewed forum where researchers in engineering, medicine, the social sciences, and law examine artificial intelligence together — its methods, its applications, and its consequences.
+                  An interdisciplinary forum where researchers, practitioners, and students — including undergraduates — present and examine artificial intelligence across engineering, medicine, social sciences, law, and more. Participation is <strong className="text-brand-black">free of charge</strong> for all attendees.
                 </p>
               </MotionDiv>
 
@@ -86,7 +92,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center h-12 px-8 text-sm font-bold bg-brand-gold text-brand-black hover:bg-brand-goldDark transition-all duration-200 shadow-gold w-full sm:w-auto"
                 >
-                  Register Now →
+                  Submit Paper →
                 </a>
                 <Link href="/cfp">
                   <Button variant="outline" size="lg" className="w-full sm:w-auto">
@@ -123,10 +129,11 @@ export default function Home() {
                   {[
                     { dt: "Dates", dd: conferenceData.date },
                     { dt: "Venue", dd: "Sultan Alparslan Cultural Center (SAKM), Konya" },
-                    { dt: "Format", dd: "In person · keynotes, paper sessions, panels" },
-                    { dt: "Proceedings", dd: "Peer-reviewed, published post-conference" },
+                    { dt: "Format", dd: "In person · oral, poster & undergraduate sessions" },
+                    { dt: "Abstract Book", dd: "Published post-conference" },
+                    { dt: "Fee", dd: "Free of charge for all participants" },
                   ].map((row) => (
-                    <div key={row.dt} className="grid grid-cols-[100px_1fr] gap-4 px-6 py-3.5">
+                    <div key={row.dt} className="grid grid-cols-[110px_1fr] gap-4 px-6 py-3.5">
                       <dt className="font-mono text-[11px] uppercase tracking-[0.2em] text-brand-gold pt-0.5">{row.dt}</dt>
                       <dd className="text-sm text-brand-black leading-relaxed">{row.dd}</dd>
                     </div>
@@ -187,12 +194,18 @@ export default function Home() {
 
       {/* ————— Tracks ————— */}
       <Section id="tracks" className="bg-brand-surface border-y border-brand-border">
-        <SectionHeading
-          eyebrow="Research areas"
-          title="Conference Topics"
-          description="Submissions are reviewed across seven interdisciplinary domains, spanning engineering, medicine, agriculture, law, economics, social sciences, and philosophy & sociology."
-          className="mb-16"
-        />
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <SectionHeading
+            eyebrow="Research areas"
+            title="Conference Topics"
+            description="Submissions are reviewed across seven interdisciplinary domains, spanning engineering, medicine, agriculture, law, economics, social sciences, and philosophy & sociology."
+          />
+          <MotionDiv variants={fadeUpVariant} className="shrink-0">
+            <Link href="/cfp">
+              <Button variant="outline">View All Topics & Tracks →</Button>
+            </Link>
+          </MotionDiv>
+        </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {conferenceData.tracks.map((track, i) => {
@@ -225,7 +238,14 @@ export default function Home() {
                       <li key={idx} className="truncate">• {t.name}</li>
                     ))}
                     {track.topics.length > 3 && (
-                      <li className="font-mono text-[10px] text-brand-gold font-semibold pt-1">+ {track.topics.length - 3} more subtopics</li>
+                      <li className="pt-1">
+                        <Link
+                          href="/cfp"
+                          className="font-mono text-[10px] text-brand-gold hover:text-brand-goldDark font-semibold inline-flex items-center gap-1 transition-colors hover:underline"
+                        >
+                          + {track.topics.length - 3} more subtopics →
+                        </Link>
+                      </li>
                     )}
                   </ul>
                 </div>
@@ -453,9 +473,9 @@ export default function Home() {
               className="max-w-none"
             />
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
-              <Link href="/registration">
+              <Link href="/cfp">
                 <Button variant="gold" size="lg" className="w-full sm:w-auto">
-                  Register to attend
+                  Submit your paper
                 </Button>
               </Link>
               <Link href="/venue">

@@ -75,9 +75,16 @@ export default function Keynotes() {
                             </div>
                           )}
 
-                          <p className="text-brand-blackLight font-light leading-relaxed text-base mb-6">
+                          <p className="text-brand-blackLight font-light leading-relaxed text-base mb-4">
                             {speaker.bio}
                           </p>
+
+                          {speaker.fullBio && (
+                            <div className="mb-2 border-t border-brand-border pt-4">
+                              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-gold font-bold block mb-2">Biography</span>
+                              <p className="text-brand-blackLight font-light leading-relaxed text-sm">{speaker.fullBio}</p>
+                            </div>
+                          )}
                         </div>
 
                         {speaker.link && (

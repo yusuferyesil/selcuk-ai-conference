@@ -2,7 +2,7 @@ import type { Metadata } from "next"
 import { Section } from "@/components/ui/Section"
 import { PageHeader } from "@/components/ui/PageHeader"
 import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/MotionDiv"
-import { Calendar, Clock, FileText, Bell } from "lucide-react"
+import { Calendar, Clock, FileText, Bell, LayoutGrid, GraduationCap } from "lucide-react"
 import { conferenceData } from "@/data/conference"
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default function Program() {
                   Program Will Be<br />Announced Soon
                 </h2>
                 <p className="text-brand-blackLight font-light leading-relaxed text-lg max-w-xl mx-auto">
-                  The full three-day schedule of keynote lectures, paper presentation sessions, panels, and social events will be published following the notification of acceptance.
+                  The full three-day schedule of keynote lectures, oral and poster presentation sessions, panels, and social events will be published following the notification of acceptance.
                 </p>
 
                 {/* Conference dates reminder */}
@@ -62,7 +62,7 @@ export default function Program() {
             <h3 className="text-sm font-mono uppercase tracking-[0.2em] text-brand-blackLight mb-6 border-b border-brand-border pb-3">
               What to Expect
             </h3>
-            <div className="grid sm:grid-cols-3 gap-6 mb-12">
+            <div className="grid sm:grid-cols-2 gap-6 mb-12">
               {[
                 {
                   icon: Calendar,
@@ -71,13 +71,23 @@ export default function Program() {
                 },
                 {
                   icon: FileText,
-                  label: "Paper Sessions",
-                  desc: "40+ oral presentation sessions across 7 disciplinary tracks",
+                  label: "Oral Presentation Sessions",
+                  desc: "Full and short paper presentations across disciplinary tracks",
+                },
+                {
+                  icon: LayoutGrid,
+                  label: "Poster Sessions",
+                  desc: "Dedicated poster presentation sessions for extended abstracts",
                 },
                 {
                   icon: Bell,
                   label: "Keynote Lectures",
                   desc: "Invited talks by leading researchers and industry experts",
+                },
+                {
+                  icon: GraduationCap,
+                  label: "Undergraduate Session",
+                  desc: "Dedicated session for bachelor's degree student research presentations",
                 },
               ].map((item) => (
                 <div

@@ -70,13 +70,13 @@ export default function Committee() {
           <CommitteeList title="General Chairs" members={committeeData.generalChairs} layout="grid" />
           <CommitteeList title="Vice Chairs" members={committeeData.viceChairs} layout="grid" />
 
-          {committeeData.areaEditors && committeeData.areaEditors.length > 0 && (
+          {committeeData.fieldEditors && committeeData.fieldEditors.length > 0 && (
             <MotionDiv variants={fadeUpVariant} className="mb-20">
               <h2 className="text-3xl font-display font-medium mb-10 text-brand-black border-b border-brand-border pb-4">
-                Area Editors
+                Field Editors
               </h2>
               <div className="grid md:grid-cols-2 gap-8">
-                {committeeData.areaEditors.map((editor, i) => (
+                {committeeData.fieldEditors.map((editor, i) => (
                   <div key={i} className="group relative pl-6 border-l-2 w-full bg-brand-surface border-brand-border hover:border-brand-gold transition-colors py-4 px-6 shadow-soft">
                     <span className="font-mono text-brand-gold text-[10px] uppercase tracking-[0.2em] font-semibold mb-2 block">{editor.area}</span>
                     <h3 className="text-xl font-display font-semibold text-brand-black group-hover:text-brand-goldDark transition-colors">{editor.name}</h3>

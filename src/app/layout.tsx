@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils';
 import { conferenceData } from '@/data/conference';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import RegistrationBar from '@/components/layout/RegistrationBar';
 
 const sans = IBM_Plex_Sans({
   subsets: ['latin', 'latin-ext'],
@@ -50,6 +51,7 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
+        <RegistrationBar />
         <Navbar />
         <main id="main-content" className="flex-grow">
           {children}

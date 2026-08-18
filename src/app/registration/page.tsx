@@ -13,22 +13,27 @@ export const metadata: Metadata = {
 }
 
 const inclusionList = [
-  "Access to all oral presentation sessions across 7 disciplinary tracks",
-  "Admission to all Plenary and Keynote lecture sessions",
-  "Publication of accepted peer-reviewed papers in conference proceedings",
+  "Access to all oral and poster presentation sessions across tracks",
+  "Access to all Plenary and Keynote lecture sessions",
+  "Access to the dedicated Undergraduate Student Session",
+  "Publication of presented papers in abstract book",
   "Official Certificate of Participation and Presentation",
-  "Conference kit, program booklet, and digital access materials",
-  "Daily lunch, coffee breaks, and networking receptions during the conference",
+  "Conference materials, program booklet, and digital access materials",
+  "Coffee breaks and networking receptions during the conference",
 ];
 
 const registrationFaqs = [
   {
-    q: "When will registration fees and payment details be announced?",
-    a: "Registration fee tiers, student discount options, and online payment portal instructions are currently being finalized and will be officially announced on this page following the abstract submission review period.",
+    q: "Is participation free of charge?",
+    a: "Yes. Attendance at ICAAD 2026 is completely free for all participants — researchers, practitioners, students, and academic listeners — with no registration fee required.",
+  },
+  {
+    q: "Can undergraduate students participate?",
+    a: "Yes. ICAAD 2026 features a dedicated Undergraduate Student Session where bachelor's degree students can present their research projects and engage with researchers across all disciplines. Undergraduate participation is also free of charge.",
   },
   {
     q: "Is registration required for paper presentation?",
-    a: "Yes. For every accepted paper to be included in the conference program and published proceedings, at least one author must register for the conference.",
+    a: "Yes. For every presented paper to be included in the conference program and published abstract book, at least one author must register for the conference via the CMT system.",
   },
   {
     q: "Will international participants be supported with visa invitation letters?",
@@ -51,7 +56,7 @@ export default function Registration() {
 
       <Section>
         <MotionDiv variants={staggerContainer} className="max-w-5xl mx-auto space-y-16">
-          {/* Announcement Card */}
+          {/* Free Participation Card */}
           <MotionDiv
             variants={fadeUpVariant}
             className="bg-white border-2 border-brand-gold/60 p-10 md:p-14 text-center shadow-gold relative overflow-hidden"
@@ -63,13 +68,13 @@ export default function Registration() {
               <Sparkles size={28} />
             </div>
             <span className="font-mono text-xs text-brand-gold font-bold uppercase tracking-[0.25em] block mb-2">
-              Registration Announcement
+              Open Access Conference
             </span>
             <h2 className="text-3xl md:text-4xl font-display font-semibold text-brand-black mb-4">
-              Registration Fees & Portal Will Be Announced Soon
+              Free Participation for All
             </h2>
             <p className="text-brand-blackLight font-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed mb-8">
-              Registration categories, early bird deadlines, student rates, and payment methods for {conferenceData.edition} are being finalized by the organizing committee and will be published shortly.
+              Attendance at {conferenceData.edition} is <strong className="text-brand-black">completely free of charge</strong> for all participants — researchers, students, practitioners, and academic listeners. Register via the CMT system to secure your place.
             </p>
 
             <a
@@ -78,7 +83,7 @@ export default function Registration() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center h-12 px-8 bg-brand-gold text-brand-black text-sm font-bold tracking-wide transition-all duration-200 hover:bg-brand-goldDark shadow-gold mb-8"
             >
-              Register via CMT
+              Submit Paper via CMT
             </a>
 
             <div className="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-brand-blackLight">
@@ -87,6 +92,9 @@ export default function Registration() {
               </span>
               <span className="inline-flex items-center gap-1.5 bg-brand-surface px-4 py-2 border border-brand-border">
                 <Globe size={14} className="text-brand-gold" /> Location: Konya, Turkey
+              </span>
+              <span className="inline-flex items-center gap-1.5 bg-green-50 px-4 py-2 border border-green-200 text-green-700 font-bold">
+                ✓ No Registration Fee
               </span>
             </div>
           </MotionDiv>
@@ -97,7 +105,7 @@ export default function Registration() {
               Participant Inclusions
             </span>
             <h3 className="text-2xl md:text-3xl font-display font-semibold text-brand-black mb-6 border-b border-brand-border pb-4">
-              What Conference Registration Covers
+              Conference Registration Covers
             </h3>
             <div className="grid sm:grid-cols-2 gap-4">
               {inclusionList.map((item, idx) => (
