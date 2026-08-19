@@ -13,17 +13,6 @@ export interface Speaker {
 }
 
 export const plenarySpeakers: Speaker[] = [
-  {
-    id: "erol-ozvar",
-    name: "Prof. Dr. Erol Özvar",
-    role: "President, Council of Higher Education (YÖK)",
-    affiliation: "Council of Higher Education (YÖK), Türkiye",
-    image: "/images/speakers/erol-ozvar.jpg",
-    bio: "Prof. Dr. Erol Özvar is the President of the Council of Higher Education (YÖK) of Türkiye, appointed in 2021 and reappointed in 2025. A distinguished economic historian, he previously served as Rector of Marmara University (2018–2021) and held visiting research positions at Harvard University. He is the recipient of the International Halil İnalcık History Award (2013) for his foundational scholarship on Ottoman fiscal history.",
-    fullBio: undefined,
-    link: "https://www.yok.gov.tr/Sayfalar/Kurumsal/baskan.aspx",
-    category: "plenary",
-  },
 
   {
     id: "narayanaswamy-balakrishnan",
@@ -61,6 +50,17 @@ export const keynoteSpeakers: Speaker[] = [
     link: "https://aip.riken.jp/",
     category: "keynote",
   },
+  {
+    id: "gian-marco-rignanese",
+    name: "Prof. Dr. Gian-Marco Rignanese",
+    role: "Professor & Research Director (F.R.S.-FNRS) · APS Fellow",
+    affiliation: "Université catholique de Louvain (UCLouvain), Belgium",
+    image: "/images/speakers/gian-marco-rignanese.jpg",
+    bio: "Prof. Dr. Gian-Marco Rignanese is a Professor at Ecole Polytechnique de Louvain (UCLouvain) and Research Director at F.R.S.-FNRS. An APS Fellow, he is a pioneer in materials informatics, integrating high-throughput first-principles calculations with machine learning to accelerate materials discovery. He is a lead developer of ABINIT and key contributor to the OPTIMADE consortium and Materials Project.",
+    fullBio: undefined,
+    link: "https://uclouvain.be/en/directories/gian-marco.rignanese",
+    category: "keynote",
+  },
 ];
 
 export const invitedSpeakers: Speaker[] = [
@@ -86,17 +86,7 @@ export const invitedSpeakers: Speaker[] = [
     link: "https://www.dai-labor.de",
     category: "invited",
   },
-  {
-    id: "erol-balevi",
-    name: "Erol Balevi",
-    role: "Senior Software Engineer & Agile Technical Coach",
-    affiliation: "JPMorgan Chase & Co., United States",
-    image: "/images/speakers/erol-balevi.jpg",
-    bio: "Erol Balevi is a veteran software engineer and Agile Technical Coach at JPMorgan Chase & Co. with over 25 years of experience across major US technology corporations including Microsoft and AT&T. An early pioneer of internet technology guidance in Turkey, he frequently delivers keynote sessions at Turkish universities on scalable agile engineering, cloud systems, and cybersecurity.",
-    fullBio: undefined,
-    link: "https://www.linkedin.com/in/erolbalevi",
-    category: "invited",
-  },
+
   {
     id: "erdem-erdemir",
     name: "Assoc. Prof. Dr. Erdem Erdemir",
