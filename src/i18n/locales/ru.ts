@@ -230,6 +230,8 @@ export const ru: Dictionary = {
     abstractBookPolicy: "Принятые и представленные доклады будут включены в официальный Сборник тезисов конференции.",
     proceedingsPolicyTitle: "Сборник трудов и партнерские журналы:",
     proceedingsPolicy: "Авторам принятых тезисов предлагается подать полные тексты статей до 30 ноября 2026 г.",
+    selcukPressPolicyTitle: "Selcuk University Press:",
+    selcukPressPolicy: "Сборник трудов конференции будет опубликован издательством Selcuk University Press (yayinevi.selcuk.edu.tr). Сборник получит ISBN и DOI; однако отдельные статьи не будут иметь собственных DOI. Ожидается, что процесс рецензирования сборника будет завершён в декабре.",
     deadlinesTitle: "Ключевые сроки",
   }
 ,

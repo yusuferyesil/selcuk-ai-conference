@@ -230,6 +230,8 @@ export const de: Dictionary = {
     abstractBookPolicy: "Akzeptierte und präsentierte Beiträge werden in den offiziellen Konferenz-Abstract-Band aufgenommen.",
     proceedingsPolicyTitle: "Konferenzband & Partner-Zeitschriften:",
     proceedingsPolicy: "Autoren akzeptierter Abstracts sind eingeladen, ihre Volltextarbeiten bis zum 30. November 2026 einzureichen.",
+    selcukPressPolicyTitle: "Selcuk University Press:",
+    selcukPressPolicy: "Der Konferenzband wird von Selcuk University Press (yayinevi.selcuk.edu.tr) veröffentlicht. Der Konferenzband erhält eine ISBN und eine DOI; einzelne Beiträge erhalten jedoch keine eigenen DOIs. Der Begutachtungsprozess für den Konferenzband soll im Dezember abgeschlossen werden.",
     deadlinesTitle: "Wichtigste Fristen",
   }
 ,

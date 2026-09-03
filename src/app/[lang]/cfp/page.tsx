@@ -145,6 +145,28 @@ export default async function CFP({ params }: { params: Promise<{ lang: Locale }
                 <p className="text-lg text-brand-blackLight font-light leading-relaxed">
                   <strong>{t.cfpPage.proceedingsPolicyTitle}</strong> {t.cfpPage.proceedingsPolicy}
                 </p>
+                <p className="text-lg text-brand-blackLight font-light leading-relaxed">
+                  <strong>{t.cfpPage.selcukPressPolicyTitle}</strong>{" "}
+                  {t.cfpPage.selcukPressPolicy.replace(
+                    "yayinevi.selcuk.edu.tr",
+                    ""
+                  ).split("(")[0]}
+                  {t.cfpPage.selcukPressPolicy.includes("yayinevi.selcuk.edu.tr") && (
+                    <>
+                      {"("}
+                      <a
+                        href="https://yayinevi.selcuk.edu.tr"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-brand-accent underline underline-offset-2 hover:text-brand-accentDark transition-colors"
+                      >
+                        yayinevi.selcuk.edu.tr
+                      </a>
+                      {")"}
+                      {t.cfpPage.selcukPressPolicy.split("yayinevi.selcuk.edu.tr)")[1]}
+                    </>
+                  )}
+                </p>
               </div>
             </div>
           </MotionDiv>

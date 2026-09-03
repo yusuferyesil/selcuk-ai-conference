@@ -230,6 +230,8 @@ export const tr: Dictionary = {
     abstractBookPolicy: "Kabul edilen ve sunulan tüm çalışmalar (hem sözlü sunumlar hem de poster özetleri) resmi Konferans Özet Kitabı'nda yer alacaktır.",
     proceedingsPolicyTitle: "Konferans Sonrası Bildiriler Kitabı & Anlaşmalı Dergiler:",
     proceedingsPolicy: "Kabul edilen ve sunulan özetlerin yazarları, tam metin bildirilerini (6–8 sayfa) 30 Kasım 2026 tarihine kadar göndermeye davet edilir. Bu tam bildiriler hakem değerlendirmesinden geçerek konferans sonrası bildiriler kitabında yayınlanacak ve seçilen bildiriler anlaşmalı dergilerde genişletilmiş yayın için davet edilebilecektir.",
+    selcukPressPolicyTitle: "Selçuk Üniversitesi Yayınevi:",
+    selcukPressPolicy: "Konferans bildirileri Selçuk Üniversitesi Yayınevi (yayinevi.selcuk.edu.tr) tarafından yayımlanacaktır. Bildiriler kitabının bir ISBN ve DOI numarası olacaktır; ancak bireysel makalelerin DOI numarası olmayacaktır. Bildiriler kitabı için hakem değerlendirme süreci Aralık ayında tamamlanması beklenmektedir.",
     deadlinesTitle: "Önemli Son Tarihler",
   }
 ,

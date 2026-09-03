@@ -228,6 +228,8 @@ export const en = {
     abstractBookPolicy: "Accepted and presented contributions (both oral presentations and poster abstracts) will be included in the official Conference Abstract Book.",
     proceedingsPolicyTitle: "Post-Conference Proceedings & Partner Journals:",
     proceedingsPolicy: "Authors of accepted and presented abstracts are invited to submit their full-text papers (6–8 pages) by November 30, 2026. These full papers will undergo peer review for publication in post-conference proceedings, and selected papers may be invited for extended publication in partner journals.",
+    selcukPressPolicyTitle: "Selcuk University Press:",
+    selcukPressPolicy: "The conference proceedings will be published by Selcuk University Press (yayinevi.selcuk.edu.tr). The proceedings will have an ISBN and a DOI; however, individual papers will not have DOIs. The review process for the proceedings is expected to be completed in December.",
     deadlinesTitle: "Key Deadlines",
   }
 ,
