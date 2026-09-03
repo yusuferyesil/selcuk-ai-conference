@@ -1,0 +1,88 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #FFFFFF;
+    --foreground: #1A1208;
+    --primary: #D4A700;
+    --primary-foreground: #1A1208;
+    --muted: #FDFBF5;
+    --muted-foreground: #4A3F28;
+    --border: #E8DFC8;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-[color:var(--border)];
+  }
+  body {
+    @apply bg-[color:var(--background)] text-[color:var(--foreground)] antialiased selection:bg-brand-gold selection:text-brand-black;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Translucent bar for the fixed header — warm white glass with gold border */
+.glass {
+  @apply bg-white/95 backdrop-blur-md border border-brand-border shadow-premium;
+}
+
+/*
+ * NEW background pattern — elegant interlocking diamond / lozenge lattice.
+ * Inspired by Anatolian Seljuk tilework, not the stark geometric star.
+ * Light variant: faint gold on warm white parchment surfaces.
+ */
+.bg-girih,
+.bg-grid-pattern-light {
+  background-color: transparent;
+  background-image:
+    linear-gradient(60deg, #D4A700 1px, transparent 1px),
+    linear-gradient(-60deg, #D4A700 1px, transparent 1px),
+    linear-gradient(60deg, transparent calc(50% - 1px), #D4A700 50%, transparent calc(50% + 1px)),
+    linear-gradient(-60deg, transparent calc(50% - 1px), #D4A700 50%, transparent calc(50% + 1px));
+  background-size: 40px 70px;
+  opacity: 0.06;
+}
+
+/* Cleaner approach — two-layer diamond grid with very low opacity */
+.bg-girih {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23D4A700' stroke-opacity='0.13' stroke-width='0.8'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z'/%3E%3Cline x1='0' y1='40' x2='80' y2='40'/%3E%3Cline x1='40' y1='0' x2='40' y2='80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+  opacity: 1;
+}
+
+/* Gold variant for deep dark sections (footer) — warmer, more visible */
+.bg-girih-gold {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Cg fill='none' stroke='%23D4A700' stroke-opacity='0.14' stroke-width='0.8'%3E%3Cpath d='M40 0 L80 40 L40 80 L0 40 Z'/%3E%3Cpath d='M40 20 L60 40 L40 60 L20 40 Z'/%3E%3Cline x1='0' y1='40' x2='80' y2='40'/%3E%3Cline x1='40' y1='0' x2='40' y2='80'/%3E%3C/g%3E%3C/svg%3E");
+  background-size: 80px 80px;
+}
+
+/* ── Footer gradient background ───────────────────────────────────────── */
+.footer-bg {
+  background: linear-gradient(160deg, #1C1A0F 0%, #0F0E08 40%, #1A150A 75%, #221A04 100%);
+}
+
+/* ── Premium Glow Pulse Animation ─────────────────────────────────────── */
+@keyframes premium-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(139, 26, 26, 0.5);
+    filter: brightness(1);
+  }
+  50% {
+    box-shadow: 0 0 14px 4px rgba(139, 26, 26, 0.35);
+    filter: brightness(1.15);
+  }
+}
+
+.animate-glow-accent {
+  animation: premium-pulse 2s infinite ease-in-out;
+}

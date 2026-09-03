@@ -1,0 +1,224 @@
+import type { Metadata } from "next"
+import Image from "next/image"
+import { Section } from "@/components/ui/Section"
+import { PageHeader } from "@/components/ui/PageHeader"
+import { MotionDiv, fadeUpVariant, staggerContainer } from "@/components/ui/MotionDiv"
+import { conferenceData } from "@/data/conference"
+import { MapPin, Plane, Train, Hotel, ExternalLink, Navigation, Building2, Landmark, Globe } from "lucide-react"
+
+export const metadata: Metadata = {
+  title: "Venue & Travel",
+  description: "Venue details for Sultan Alparslan Cultural Center (SAKM) in Konya, Türkiye, as well as online virtual participation information for remote delegates.",
+}
+
+import { getDictionary, Locale } from "@/i18n"
+
+export default async function Venue({ params }: { params: Promise<{ lang: Locale }> }) {
+  const resolvedParams = await params;
+  const lang = resolvedParams.lang || "en";
+  const t = getDictionary(lang);
+
+  return (
+    <div className="pt-24 pb-10 min-h-screen bg-brand-bg">
+      <PageHeader
+        eyebrow={t.venuePage.eyebrow}
+        title={t.venuePage.title}
+        description={t.venuePage.desc}
+      />
+
+      <Section>
+        <MotionDiv variants={staggerContainer} className="max-w-6xl mx-auto space-y-20">
+
+          {/* ————— City Spotlight ————— */}
+          <MotionDiv variants={fadeUpVariant} className="grid lg:grid-cols-12 gap-10 items-center bg-white border border-brand-border p-8 md:p-12 shadow-soft relative overflow-hidden">
+            <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
+
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">
+                <Landmark size={16} /> {t.venuePage.hostCity}
+              </div>
+              <h2 className="text-3xl md:text-4xl font-display font-semibold text-brand-black leading-tight">
+                {t.venuePage.welcome}
+              </h2>
+              <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                {t.venuePage.konyaP1}
+              </p>
+              <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                {t.venuePage.konyaP2}
+              </p>
+            </div>
+
+            <div className="lg:col-span-6 relative aspect-[16/10] border border-brand-border overflow-hidden shadow-soft group">
+              <Image
+                src="/images/venue/konya-city.jpg"
+                alt="Konya historic city center and Mevlana museum"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                priority
+              />
+            </div>
+          </MotionDiv>
+
+          {/* ————— Venue & Interactive Map ————— */}
+          <MotionDiv variants={fadeUpVariant} className="space-y-10">
+            <div className="border-b border-brand-border pb-4">
+              <span className="font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">{t.venuePage.locationEyebrow}</span>
+              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">{t.venuePage.locationTitle}</h2>
+            </div>
+
+            <div className="grid lg:grid-cols-12 gap-10 items-stretch">
+              <div className="lg:col-span-6 flex flex-col justify-between space-y-6 bg-white border border-brand-border p-8 shadow-soft">
+                <div className="space-y-4">
+                  <div className="flex items-center gap-3 text-brand-gold">
+                    <Building2 size={24} />
+                    <h3 className="text-xl font-display font-semibold text-brand-black">{t.venuePage.campusTitle}</h3>
+                  </div>
+                  <p className="text-brand-blackLight font-light leading-relaxed text-base">
+                    {t.venuePage.campusDesc}
+                  </p>
+                </div>
+
+                <div className="p-5 bg-brand-surface border-l-4 border-brand-gold border-y border-r border-brand-border">
+                  <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-brand-gold block mb-2 font-semibold">{t.venuePage.addressDetails}</span>
+                  <address className="not-italic text-sm text-brand-black font-medium leading-relaxed">
+                    {conferenceData.address.lines.map((line) => (
+                      <span key={line} className="block">{line}</span>
+                    ))}
+                  </address>
+                </div>
+
+                <div>
+                  <a
+                    href={conferenceData.address.mapLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-brand-gold hover:text-brand-goldDark transition-colors font-mono"
+                  >
+                    {t.venuePage.openMap} <ExternalLink size={14} />
+                  </a>
+                </div>
+              </div>
+
+              {/* Embedded Map */}
+              <div className="lg:col-span-6 border border-brand-border shadow-soft min-h-[340px] relative overflow-hidden bg-white">
+                <iframe
+                  src={conferenceData.address.mapEmbedUrl}
+                  title="Map of Sultan Alparslan Cultural Center (SAKM), Selçuk University, Konya"
+                  className="absolute inset-0 w-full h-full border-0"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+            </div>
+          </MotionDiv>
+
+          {/* ————— Travel & Getting Here ————— */}
+          <MotionDiv variants={fadeUpVariant} className="space-y-8">
+            <div className="border-b border-brand-border pb-4">
+              <span className="font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">{t.venuePage.travelEyebrow}</span>
+              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">{t.venuePage.travelTitle}</h2>
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* High-Speed Train Card */}
+              <div className="bg-white border border-brand-border p-8 shadow-soft flex flex-col justify-between space-y-6">
+                <div>
+                  <div className="flex items-center gap-3 text-brand-gold mb-4">
+                    <Train size={28} />
+                    <h3 className="text-xl font-display font-semibold text-brand-black">{t.venuePage.trainTitle}</h3>
+                  </div>
+                  <p className="text-brand-blackLight font-light text-sm leading-relaxed mb-4">
+                    {t.venuePage.trainP1}
+                  </p>
+                  <p className="text-brand-blackLight font-light text-sm leading-relaxed">
+                    {t.venuePage.trainP2}
+                  </p>
+                </div>
+                <div className="relative aspect-[16/9] border border-brand-border overflow-hidden">
+                  <Image
+                    src="/images/venue/yht-train.jpg"
+                    alt="High-Speed Train YHT travel to Konya"
+                    fill
+                    sizes="(min-width: 768px) 50vw, 100vw"
+                    className="object-cover"
+                  />
+                </div>
+              </div>
+
+              {/* By Air & Airport Transit */}
+              <div className="bg-white border border-brand-border p-8 shadow-soft flex flex-col justify-between space-y-6">
+                <div>
+                  <div className="flex items-center gap-3 text-brand-gold mb-4">
+                    <Plane size={28} />
+                    <h3 className="text-xl font-display font-semibold text-brand-black">{t.venuePage.airTitle}</h3>
+                  </div>
+                  <p className="text-brand-blackLight font-light text-sm leading-relaxed mb-4">
+                    {t.venuePage.airP1}
+                  </p>
+                  <p className="text-brand-blackLight font-light text-sm leading-relaxed mb-4">
+                    {t.venuePage.airP2}
+                  </p>
+                </div>
+                <div className="p-5 bg-brand-surface border border-brand-border space-y-3">
+                  <div className="flex items-center gap-2 text-xs font-mono text-brand-gold uppercase tracking-wider font-semibold">
+                    <Navigation size={14} /> {t.venuePage.tramAccess}
+                  </div>
+                  <p className="text-xs text-brand-blackLight leading-relaxed">
+                    {t.venuePage.tramDesc}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </MotionDiv>
+
+          {/* ————— Accommodation ————— */}
+          <MotionDiv variants={fadeUpVariant} className="space-y-8">
+            <div className="border-b border-brand-border pb-4">
+              <span className="font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">{t.venuePage.lodgingEyebrow}</span>
+              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">{t.venuePage.lodgingTitle}</h2>
+            </div>
+
+            <div className="bg-white border border-brand-border p-8 md:p-10 shadow-soft space-y-4">
+              <div className="flex items-center gap-3 text-brand-gold">
+                <Hotel size={24} />
+                <h3 className="text-xl font-display font-semibold text-brand-black">{t.venuePage.lodgingDetails}</h3>
+              </div>
+              <p className="text-brand-blackLight font-light text-sm leading-relaxed">
+                {t.venuePage.lodgingP1}
+              </p>
+              <p className="text-brand-blackLight font-light text-sm leading-relaxed">
+                {t.venuePage.lodgingP2}
+              </p>
+            </div>
+          </MotionDiv>
+
+          {/* ————— Virtual & Online Participation ————— */}
+          <MotionDiv variants={fadeUpVariant} className="space-y-8">
+            <div className="border-b border-brand-border pb-4">
+              <span className="font-mono text-xs text-brand-gold uppercase tracking-[0.2em]">{t.venuePage.remoteEyebrow}</span>
+              <h2 className="text-3xl font-display font-semibold text-brand-black mt-1">{t.venuePage.remoteTitle}</h2>
+            </div>
+
+            <div className="bg-white border-2 border-brand-gold/60 p-8 md:p-10 shadow-soft space-y-4 relative overflow-hidden">
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-brand-goldDark via-brand-gold to-brand-goldDark" aria-hidden />
+              <div className="flex items-center gap-3 text-brand-gold">
+                <Globe size={24} />
+                <h3 className="text-xl font-display font-semibold text-brand-black">{t.venuePage.virtualTitle}</h3>
+              </div>
+              <p className="text-brand-blackLight font-light text-sm md:text-base leading-relaxed">
+                {t.venuePage.virtualDesc}
+              </p>
+              <div className="p-4 bg-brand-surface border-l-4 border-brand-gold text-xs font-mono text-brand-blackLight space-y-1.5">
+                <p className="font-semibold text-brand-black flex items-center gap-2"><span>✦</span> {t.venuePage.virtualFeature1}</p>
+                <p className="font-semibold text-brand-black flex items-center gap-2"><span>✦</span> {t.venuePage.virtualFeature2}</p>
+                <p className="font-semibold text-brand-black flex items-center gap-2"><span>✦</span> {t.venuePage.virtualFeature3}</p>
+              </div>
+            </div>
+          </MotionDiv>
+
+        </MotionDiv>
+      </Section>
+    </div>
+  )
+}
