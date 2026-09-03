@@ -46,12 +46,12 @@ export function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 text-sm font-medium transition-colors rounded-sm text-brand-black hover:text-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+        className="flex items-center gap-1.5 px-2 sm:px-3 py-1.5 sm:py-2 text-xs sm:text-sm font-semibold transition-colors rounded-sm text-brand-black hover:text-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold border border-brand-border/60 hover:border-brand-gold/60 bg-white/80"
         aria-expanded={isOpen}
         aria-haspopup="true"
       >
-        <Globe size={16} />
-        <span className="uppercase">{currentLocale}</span>
+        <Globe size={15} className="text-brand-gold shrink-0" />
+        <span className="uppercase tracking-wider">{currentLocale}</span>
       </button>
 
       <AnimatePresence>
@@ -61,7 +61,7 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
             transition={{ duration: 0.15 }}
-            className="absolute right-0 top-full mt-2 bg-white border border-brand-border shadow-soft min-w-[140px] py-2 flex flex-col overflow-hidden z-50"
+            className="absolute right-0 ltr:right-0 rtl:left-0 top-full mt-1.5 bg-white border border-brand-border shadow-lg min-w-[140px] py-1.5 flex flex-col overflow-hidden z-[70] rounded-sm"
           >
             <div className="absolute top-0 inset-x-0 h-0.5 bg-brand-gold" aria-hidden />
             {locales.map((loc) => (
@@ -70,10 +70,10 @@ export function LanguageSwitcher() {
                 href={getLocalizedPath(loc)}
                 onClick={() => setIsOpen(false)}
                 className={cn(
-                  "px-4 py-2 text-sm transition-colors border-l-2",
+                  "px-3.5 py-2 text-xs sm:text-sm transition-colors border-l-2 text-left rtl:text-right",
                   currentLocale === loc
-                    ? "text-brand-black border-brand-gold bg-brand-goldLight/60 font-medium"
-                    : "text-brand-blackLight border-transparent hover:text-brand-black hover:border-brand-gold hover:bg-brand-goldLight/40"
+                    ? "text-brand-black border-brand-gold bg-brand-goldLight/60 font-semibold"
+                    : "text-brand-blackLight border-transparent hover:text-brand-black hover:border-brand-gold hover:bg-brand-goldLight/30"
                 )}
               >
                 {localeNames[loc]}
